@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Contacta a Lorena Minoretti para consultas sobre sus obras de arte.">
+  <meta name="keywords" content="Lorena Minoretti, contacto, arte, pintura">
+  <title>Contacto - Lorena Minoretti Art</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="flex flex-col min-h-screen">
+  <header class="header bg-green-200 sticky top-0 z-50 shadow-md">
+    <div class="container mx-auto flex justify-between items-center p-4">
+      <a href="index.html" class="logo font-serif text-2xl font-semibold text-green-900">Lorena Minoretti Art</a>
+      <nav class="navbar hidden md:flex" id="navbar">
+        <ul class="flex gap-6">
+          <li><a href="index.html" class="text-green-900 font-semibold hover:text-green-600">Obras</a></li>
+          <li><a href="quien_soy.html" class="text-green-900 font-semibold hover:text-green-600">Quién Soy</a></li>
+          <li><a href="contacto.html" class="text-green-900 font-semibold hover:text-green-600">Contacto</a></li>
+        </ul>
+      </nav>
+      <button class="menu-toggle md:hidden text-2xl text-green-900" id="menu-toggle" aria-label="Abrir menú">☰</button>
+    </div>
+  </header>
+
+  <main class="flex-grow py-12">
+    <div class="container mx-auto px-4 text-center">
+      <h2 class="font-serif text-3xl text-green-800 mb-6">Contacto</h2>
+      <p class="mb-8 text-lg">Podés contactarme a través de los siguientes medios. ¡Estoy encantada de responderte!</p>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="obra-card p-6">
+          <img src="img/instagram-icon.png" alt="Ícono de Instagram" class="mx-auto h-20 mb-4" loading="lazy">
+          <h3 class="font-serif text-xl text-green-800 mb-2">Instagram</h3>
+          <a href="https://instagram.com/lorena_minoretti_art" target="_blank" class="text-green-600 font-semibold hover:underline">@lorena_minoretti_art</a>
+        </div>
+        <div class="obra-card p-6">
+          <img src="img/whatsapp-icon.png" alt="Ícono de WhatsApp" class="mx-auto h-20 mb-4" loading="lazy">
+          <h3 class="font-serif text-xl text-green-800 mb-2">WhatsApp</h3>
+          <a href="https://wa.me/5491167852021" target="_blank" class="text-green-600 font-semibold hover:underline">Enviar mensaje</a>
+        </div>
+        <div class="obra-card p-6">
+          <img src="img/email-icon.png" alt="Ícono de Email" class="mx-auto h-20 mb-4" loading="lazy">
+          <h3 class="font-serif text-xl text-green-800 mb-2">Email</h3>
+          <a href="mailto:lorenaminoretti@yahoo.ca" class="text-green-600 font-semibold hover:underline">lorenaminoretti@yahoo.ca</a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer bg-green-900 text-white text-center py-6">
+    <div class="container mx-auto">
+      <p>© 2025 Lorena Minoretti Art</p>
+      <p class="mt-2">
+        <a href="https://www.instagram.com/lorena_minoretti_art" target="_blank" rel="noopener noreferrer" class="text-green-200 hover:underline">Instagram</a> |
+        <a href="mailto:lorenaminoretti@yahoo.ca" class="text-green-200 hover:underline">Mail</a> |
+        <a href="https://wa.me/5491167852021" target="_blank" rel="noopener noreferrer" class="text-green-200 hover:underline">WhatsApp</a>
+      </p>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const toggle = document.getElementById("menu-toggle");
+      const nav = document.getElementById("navbar");
+      toggle.addEventListener("click", () => {
+        nav.classList.toggle("open");
+        toggle.setAttribute("aria-expanded", nav.classList.contains("open"));
+      });
+    });
+  </script>
+</body>
+</html>
