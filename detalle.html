@@ -14,34 +14,34 @@
   <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
 </head>
 <body class="flex flex-col min-h-screen">
-  <header class="header bg-green-200 sticky top-0 z-50 shadow-md">
+  <header class="header sticky top-0 z-50 shadow-md" style="background-color: #c4dafa;">
     <div class="container mx-auto flex justify-between items-center p-4">
-      <a href="index.html" class="logo font-serif text-2xl font-semibold text-green-900">Lorena Minoretti Art</a>
+      <a href="index.html" class="logo font-serif text-2xl font-semibold" style="color: #005187;">Lorena Minoretti Art</a>
       <nav class="navbar hidden md:flex" id="navbar">
         <ul class="flex gap-6">
-          <li><a href="index.html" class="text-green-900 font-semibold hover:text-green-600">Obras</a></li>
-          <li><a href="quien_soy.html" class="text-green-900 font-semibold hover:text-green-600">Quién Soy</a></li>
-          <li><a href="contacto.html" class="text-green-900 font-semibold hover:text-green-600">Contacto</a></li>
+          <li><a href="index.html" class="font-semibold hover:opacity-75" style="color: #005187;">Obras</a></li>
+          <li><a href="quien_soy.html" class="font-semibold hover:opacity-75" style="color: #005187;">Quién Soy</a></li>
+          <li><a href="contacto.html" class="font-semibold hover:opacity-75" style="color: #005187;">Contacto</a></li>
         </ul>
       </nav>
-      <button class="menu-toggle md:hidden text-2xl text-green-900" id="menu-toggle" aria-label="Abrir menú">☰</button>
+      <button class="menu-toggle md:hidden text-2xl" style="color: #005187;" id="menu-toggle" aria-label="Abrir menú">☰</button>
     </div>
   </header>
 
   <main class="flex-grow py-8">
     <div class="container mx-auto px-4">
-      <a href="index.html" class="inline-block mb-6 text-green-900 font-semibold border-2 border-green-900 px-4 py-2 rounded-lg hover:bg-green-600 hover:text-white">← Volver a la galería</a>
+      <a href="index.html" class="inline-block mb-6 font-semibold border-2 px-4 py-2 rounded-lg transition-colors" style="color: #005187; border-color: #005187;" onmouseover="this.style.backgroundColor='#4d82bc'; this.style.color='white'" onmouseout="this.style.backgroundColor='transparent'; this.style.color='#005187'">← Volver a la galería</a>
       <div id="main-container" class="bg-white p-6 rounded-lg shadow-lg"></div>
     </div>
   </main>
 
-  <footer class="footer bg-green-900 text-white text-center py-6">
+  <footer class="footer text-white text-center py-6" style="background-color: #005187;">
     <div class="container mx-auto">
       <p>© 2025 Lorena Minoretti Art</p>
       <p class="mt-2">
-        <a href="https://www.instagram.com/lorena_minoretti_art" target="_blank" rel="noopener noreferrer" class="text-green-200 hover:underline">Instagram</a> |
-        <a href="mailto:lorenaminoretti@yahoo.ca" class="text-green-200 hover:underline">Mail</a> |
-        <a href="https://wa.me/5491167852021" target="_blank" rel="noopener noreferrer" class="text-green-200 hover:underline">WhatsApp</a>
+        <a href="https://www.instagram.com/lorena_minoretti_art" target="_blank" rel="noopener noreferrer" class="hover:underline" style="color: #84b6f4;" onmouseover="this.style.color='#c4dafa'" onmouseout="this.style.color='#84b6f4'">Instagram</a> |
+        <a href="mailto:lorenaminoretti@yahoo.ca" class="hover:underline" style="color: #84b6f4;" onmouseover="this.style.color='#c4dafa'" onmouseout="this.style.color='#84b6f4'">Mail</a> |
+        <a href="https://wa.me/5491167852021" target="_blank" rel="noopener noreferrer" class="hover:underline" style="color: #84b6f4;" onmouseover="this.style.color='#c4dafa'" onmouseout="this.style.color='#84b6f4'">WhatsApp</a>
       </p>
     </div>
   </footer>
@@ -73,14 +73,17 @@
           <div class="swiper-button-prev"></div>
           <div class="swiper-button-next"></div>
         </div>
-        <h2 class="text-2xl font-serif text-green-800 mb-4">${obra.title}</h2>
+        <h2 class="text-2xl font-serif mb-4" style="color: #4d82bc;">${obra.title}</h2>
         <p><strong>Año:</strong> ${obra.year}</p>
         <p><strong>Técnica:</strong> ${obra.technique}</p>
         <p><strong>Precio:</strong> $${obra.price}</p>
         <p class="mt-4">${obra.description}</p>
         <a href="https://wa.me/5491167852021?text=Hola%20Lorena,%20estoy%20interesado/a%20en%20la%20obra%20'${encodeURIComponent(obra.title)}'" 
            target="_blank" 
-           class="btn-whatsapp bg-green-500 text-white px-4 py-2 rounded-lg mt-4 inline-block">
+           class="btn-whatsapp text-white px-4 py-2 rounded-lg mt-4 inline-block transition-colors"
+           style="background-color: #4d82bc;"
+           onmouseover="this.style.backgroundColor='#005187'"
+           onmouseout="this.style.backgroundColor='#4d82bc'">
            Consultar por WhatsApp
         </a>
       `;
