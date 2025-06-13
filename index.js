@@ -55,7 +55,7 @@ document.addEventListener("DOMContentLoaded", () => {
       images: ["obra2a.jpg", "obra2b.jpg"],
     },
     {
-      title: "TerrÁq",
+      title: "TérrAq",
       year: 2024,
       technique: "Juego de Mesa",
       price: 90000,
