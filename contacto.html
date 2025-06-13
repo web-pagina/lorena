@@ -13,19 +13,24 @@
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 </head>
 <body class="flex flex-col min-h-screen">
-  <header class="header sticky top-0 z-50 shadow-md" style="background-color: #c4dafa;">
-    <div class="container mx-auto flex justify-between items-center p-4">
-      <a href="index.html" class="logo font-serif text-2xl font-semibold" style="color: #005187;">Lorena Minoretti Art</a>
-      <nav class="navbar hidden md:flex" id="navbar">
-        <ul class="flex gap-6">
-          <li><a href="index.html" class="font-semibold hover:opacity-75" style="color: #005187;">Obras</a></li>
-          <li><a href="quien_soy.html" class="font-semibold hover:opacity-75" style="color: #005187;">Quién Soy</a></li>
-          <li><a href="contacto.html" class="font-semibold hover:opacity-75" style="color: #005187;">Contacto</a></li>
-        </ul>
-      </nav>
-      <button class="menu-toggle md:hidden text-2xl" style="color: #005187;" id="menu-toggle" aria-label="Abrir menú">☰</button>
-    </div>
-  </header>
+    <!-- Header -->
+    <header class="header sticky top-0 z-50 shadow-md" style="background-color: #c4dafa;">
+        <div class="container mx-auto flex justify-between items-center p-4">
+            <a href="index.html" class="logo font-serif text-2xl font-semibold" style="color: #005187;">Lorena Minoretti Art</a>
+            
+            <!-- Desktop Navigation -->
+            <nav class="navbar hidden md:flex" id="navbar">
+                <ul class="flex gap-6">
+                    <li><a href="index.html" class="font-semibold hover:opacity-75" style="color: #005187;">Obras</a></li>
+                    <li><a href="quien_soy.html" class="font-semibold hover:opacity-75" style="color: #005187;">Quién Soy</a></li>
+                    <li><a href="contacto.html" class="font-semibold hover:opacity-75" style="color: #005187;">Contacto</a></li>
+                </ul>
+            </nav>
+
+            <!-- Mobile Menu Button -->
+            <button class="menu-toggle md:hidden text-2xl" style="color: #005187;" id="menu-toggle" aria-label="Abrir menú">☰</button>
+        </div>
+    </header>
 
   <main class="flex-grow py-12">
     <div class="container mx-auto px-4 text-center">
