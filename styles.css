@@ -27,7 +27,7 @@ body {
 }
 
 .navbar a:focus {
-  outline: 2px solid #4caf50;
+  outline: 2px solid #4cadaf;
   outline-offset: 2px;
 }
 
@@ -70,7 +70,7 @@ body {
 }
 
 .swiper-button-prev, .swiper-button-next {
-  background-color: rgba(32, 64, 48, 0.7);
+  background-color: rgba(32, 48, 64, 0.7);
   border-radius: 50%;
   width: 40px;
   height: 40px;
@@ -82,7 +82,7 @@ body {
 }
 
 .swiper-pagination-bullet-active {
-  background-color: #4caf50;
+  background-color: #4c7faf;
 }
 
 /* Obras Grid */
@@ -109,16 +109,16 @@ body {
 .obra-card h3 {
   font-family: 'Playfair Display', serif;
   font-size: 1.25rem;
-  color: #204030;
+  color: #203d40;
 }
 
 .obra-card p {
-  color: #4caf50;
+  color: #4cadaf;
   font-weight: 600;
 }
 
 .filter-btn.active {
-  background-color: #4caf50;
+  background-color: #4cadaf;
   color: white;
 }
 
@@ -129,7 +129,7 @@ body {
 }
 
 .modal-close:hover {
-  color: #4caf50;
+  color: #4cadaf;
 }
 
 .modal img {
@@ -140,7 +140,7 @@ body {
 
 /* Footer */
 .footer a:focus {
-  outline: 2px solid #a3d9c1;
+  outline: 2px solid #a3d9d2;
   outline-offset: 2px;
 }
 
@@ -158,7 +158,7 @@ body {
 .about-section h2 {
   font-family: 'Playfair Display', serif;
   font-size: 2rem;
-  color: #204030;
+  color: #203840;
   margin-bottom: 20px;
 }
 
@@ -175,7 +175,7 @@ body {
   object-fit: cover;
   border-radius: 50%;
   margin-top: 25px;
-  border: 4px solid #a3d9c1;
+  border: 4px solid #a3d6d9;
   box-shadow: 0 4px 12px rgba(0,0,0,0.1);
   transition: transform 0.3s ease;
 }
