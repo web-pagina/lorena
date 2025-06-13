@@ -86,6 +86,22 @@ document.addEventListener("DOMContentLoaded", () => {
       description: "Pintura de tortuga con acrílico.",
       images: ["obra6a.jpg", "obra6b.jpg"],
     },
+    {
+      title: "Pack postales",
+      year: 2024,
+      technique: "Postales",
+      price: 90000,
+      description: "Pack de 4 postales.",
+      images: ["obra7a.jpg", "obra7b.jpg", "obra7c.jpg", "obra7d.jpg", "obra7e.jpg"],
+    },
+    {
+      title: "Libro Aruor",
+      year: 2024,
+      technique: "Libros",
+      price: 90000,
+      description: "Libro Aruor.",
+      images: ["obra8a.jpg", "obra8b.jpg", "obra8c.jpg", "obra8d.jpg", "obra8e.jpg"],
+    }
   ];
 
   // Renderizar galería
