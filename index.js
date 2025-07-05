@@ -101,6 +101,14 @@ document.addEventListener("DOMContentLoaded", () => {
       price: 90000,
       description: "Libro Aruor.",
       images: ["obra8a.jpg", "obra8b.jpg", "obra8c.jpg", "obra8d.jpg", "obra8e.jpg"],
+    },
+        {
+      title: "Libro del Agua",
+      year: 2023,
+      technique: "Libro",
+      price: 50000,
+      description: "Las páginas de este libro prometen sumergirnos en una travesía profunda para que el tiempo se detenga y las voces externas e internas se apacígüen en un mar de colores y formas.",
+      images: ["obra7a.png", "obra7b.png", "obra7c.png", "obra7d.png", "obra7e.png"],
     }
   ];
 
