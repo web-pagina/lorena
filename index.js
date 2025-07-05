@@ -52,7 +52,7 @@ document.addEventListener("DOMContentLoaded", () => {
       technique: "Acrílico",
       price: 18000,
       description: "Obra pingüinos.",
-      images: ["obra2a.jpg", "obra2b.jpg"],
+      images: ["obra2a.png", "obra2b.png"],
     },
     {
       title: "TérrAq",
@@ -60,7 +60,7 @@ document.addEventListener("DOMContentLoaded", () => {
       technique: "Juego de Mesa",
       price: 90000,
       description: "Juego de mesa de estrategia sobre especies y medioambiente. Con ilustraciones dibujadas a mano, diseño y textos sobre cuestiones ambientales del planeta, este juego ha obtenido la Mención al Sello Buen Diseño argentino.",
-      images: ["obra3a.jpg", "obra3b.jpg", "obra3c.jpg", "obra3d.jpg"],
+      images: ["obra3a.png", "obra3b.png", "obra3c.png", "obra3d.png"],
     },
     {
       title: "Zorro",
@@ -68,7 +68,7 @@ document.addEventListener("DOMContentLoaded", () => {
       technique: "Dibujo",
       price: 90000,
       description: "Pintura zorro hecho con lápiz acuarelable.",
-      images: ["obra4a.jpg", "obra4b.jpg"],
+      images: ["obra4a.png", "obra4b.png"],
     },
     {
       title: "León",
@@ -76,7 +76,7 @@ document.addEventListener("DOMContentLoaded", () => {
       technique: "Dibujo",
       price: 90000,
       description: "Dibujo de león.",
-      images: ["obra5a.jpg", "obra5b.jpg"],
+      images: ["obra5a.png", "obra5b.png"],
     },
     {
       title: "Tortuga",
@@ -84,7 +84,7 @@ document.addEventListener("DOMContentLoaded", () => {
       technique: "Acrílico",
       price: 90000,
       description: "Pintura de tortuga con acrílico.",
-      images: ["obra6a.jpg", "obra6b.jpg"],
+      images: ["obra6a.png", "obra6b.png"],
     },
     {
       title: "Pack postales",
@@ -92,15 +92,15 @@ document.addEventListener("DOMContentLoaded", () => {
       technique: "Postales",
       price: 90000,
       description: "Pack de 4 postales.",
-      images: ["obra7a.jpg", "obra7b.jpg", "obra7c.jpg", "obra7d.jpg", "obra7e.jpg"],
+      images: ["obra7a.png", "obra7b.png", "obra7c.png", "obra7d.png", "obra7e.png"],
     },
     {
       title: "Libro Aruor",
       year: 2024,
-      technique: "Libros",
+      technique: "Libro",
       price: 90000,
       description: "Libro Aruor.",
-      images: ["obra8a.jpg", "obra8b.jpg", "obra8c.jpg", "obra8d.jpg", "obra8e.jpg"],
+      images: ["obra8a.png", "obra8b.png", "obra8c.png", "obra8d.png", "obra8e.png"],
     },
         {
       title: "Libro del Agua",
