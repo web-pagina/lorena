@@ -43,8 +43,8 @@ document.addEventListener("DOMContentLoaded", () => {
       year: 2023,
       technique: "Libro",
       price: 50000,
-      description: "Libro de búhos, lechuzas, flores y plumas. Hecho con acuarela y tinta.",
-      images: ["obra1a.jpg", "obra1b.jpg"],
+      description: "Libro de búhos, lechuzas, flores y plumas. Hecho con acuarela y tinta. Sus páginas son una travesía interna que solo cada uno de nosotros podrá expresar.",
+      images: ["obra1a.png", "obra1b.png", "obra1c.png", "obra1d.png", "obra1e.png"],
     },
     {
       title: "Pingüinos",
