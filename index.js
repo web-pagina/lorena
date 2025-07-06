@@ -47,17 +47,19 @@ document.addEventListener("DOMContentLoaded", () => {
       images: ["obra1a.png", "obra1b.png", "obra1c.png", "obra1d.png", "obra1e.png"],
     },
     {
-      title: "Pingüinos",
-      year: 2022,
+      title: "Miradas desde la osucridad",
+      year: 2019,
       technique: "Acrílico",
+      size: "120 cm x 120 cm",
       price: 18000,
-      description: "Obra pingüinos.",
+      description: "Las oscuras profundidades del océano vibran con poderosas miradas de seres que los humanos se niegan a ver...",
       images: ["obra2a.png", "obra2b.png"],
     },
     {
       title: "TérrAq",
       year: 2024,
       technique: "Juego de Mesa",
+      size: "120 cm x 120 cm",
       price: 90000,
       description: "Juego de mesa de estrategia sobre especies y medioambiente. Con ilustraciones dibujadas a mano, diseño y textos sobre cuestiones ambientales del planeta, este juego ha obtenido la Mención al Sello Buen Diseño argentino.",
       images: ["obra3a.png", "obra3b.png", "obra3c.png", "obra3d.png"],
@@ -66,6 +68,7 @@ document.addEventListener("DOMContentLoaded", () => {
       title: "Zorro",
       year: 2024,
       technique: "Dibujo",
+      size: "120 cm x 120 cm",
       price: 90000,
       description: "Pintura zorro hecho con lápiz acuarelable.",
       images: ["obra4a.png", "obra4b.png"],
@@ -74,6 +77,7 @@ document.addEventListener("DOMContentLoaded", () => {
       title: "León",
       year: 2024,
       technique: "Dibujo",
+      size: "120 cm x 120 cm",
       price: 90000,
       description: "Dibujo de león.",
       images: ["obra5a.png", "obra5b.png"],
@@ -82,6 +86,7 @@ document.addEventListener("DOMContentLoaded", () => {
       title: "Tortuga",
       year: 2024,
       technique: "Acrílico",
+      size: "120 cm x 120 cm",
       price: 90000,
       description: "Pintura de tortuga con acrílico.",
       images: ["obra6a.png", "obra6b.png"],
@@ -90,6 +95,7 @@ document.addEventListener("DOMContentLoaded", () => {
       title: "Pack postales",
       year: 2024,
       technique: "Postales",
+      size: "120 cm x 120 cm",
       price: 90000,
       description: "Pack de 4 postales.",
       images: ["obra7a.png", "obra7b.png", "obra7c.png", "obra7d.png", "obra7e.png"],
@@ -98,6 +104,7 @@ document.addEventListener("DOMContentLoaded", () => {
       title: "Libro Aruor",
       year: 2024,
       technique: "Libro",
+      size: "120 cm x 120 cm",
       price: 90000,
       description: "Libro Aruor.",
       images: ["obra8a.png", "obra8b.png", "obra8c.png", "obra8d.png", "obra8e.png"],
@@ -106,6 +113,7 @@ document.addEventListener("DOMContentLoaded", () => {
       title: "Libro del Agua",
       year: 2023,
       technique: "Libro",
+      size: "120 cm x 120 cm",
       price: 50000,
       description: "Las páginas de este libro prometen sumergirnos en una travesía profunda para que el tiempo se detenga y las voces externas e internas se apacígüen en un mar de colores y formas.",
       images: ["obra7a.png", "obra7b.png", "obra7c.png", "obra7d.png", "obra7e.png"],
@@ -124,6 +132,7 @@ document.addEventListener("DOMContentLoaded", () => {
         <img src="img/${obra.images[0]}" alt="${obra.title}" class="mb-4" loading="lazy">
         <h3 class="text-lg font-semibold">${obra.title}</h3>
         <p>${obra.technique}</p>
+        <p>${obra.size}</p>
         <p class="text-green-600 font-bold">$${obra.price}</p>
       </div>
     `).join("");
@@ -161,6 +170,7 @@ document.addEventListener("DOMContentLoaded", () => {
       <h2 class="text-2xl font-serif text-green-800 mt-4">${obra.title}</h2>
       <p><strong>Año:</strong> ${obra.year}</p>
       <p><strong>Técnica:</strong> ${obra.technique}</p>
+      <p><strong>Tamaño:</strong> ${obra.size}</p>
       <p><strong>Precio:</strong> $${obra.price}</p>
       <p>${obra.description}</p>
       <a href="https://wa.me/5491167852021?text=Hola%20Lorena,%20estoy%20interesado/a%20en%20la%20obra%20'${encodeURIComponent(obra.title)}'" 
