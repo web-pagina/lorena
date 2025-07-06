@@ -100,7 +100,7 @@ document.addEventListener("DOMContentLoaded", () => {
       technique: "Libro",
       price: 90000,
       description: "Libro Aruor.",
-      images: ["obra8a.png", "obra1b.png", "obra8c.png", "obra8d.png", "obra8e.png"],
+      images: ["obra8a.png", "obra8b.png", "obra8c.png", "obra8d.png", "obra8e.png"],
     },
         {
       title: "Libro del Agua",
