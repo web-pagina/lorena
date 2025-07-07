@@ -168,7 +168,6 @@ document.addEventListener("DOMContentLoaded", () => {
         <img src="img/${obra.images[0]}" alt="${obra.title}" class="mb-4" loading="lazy">
         <h3 class="text-lg font-semibold">${obra.title}</h3>
         <p>${obra.technique}</p>
-        <p>${obra.size}</p>
         <p class="text-green-600 font-bold">$${obra.price}</p>
       </div>
     `).join("");
