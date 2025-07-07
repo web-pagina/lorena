@@ -109,7 +109,7 @@ document.addEventListener("DOMContentLoaded", () => {
       description: "Libro Aruor.",
       images: ["obra8a.png", "obra8b.png", "obra8c.png"],
     },
-        {
+    {
       title: "Libro del Agua",
       year: 2023,
       technique: "Libro",
