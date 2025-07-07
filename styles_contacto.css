@@ -1,0 +1,33 @@
+/* Estilos para centrar y mejorar las tarjetas de contacto */
+.obra-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  max-width: 300px; /* Limita el ancho de las tarjetas para que no se estiren demasiado */
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.grid.justify-center {
+  display: grid;
+  justify-content: center; /* Centra las tarjetas horizontalmente */
+}
+
+/* Asegura que las imágenes no se corten */
+.obra-card img {
+  max-width: 100%; /* Evita que la imagen se desborde del contenedor */
+  height: 80px; /* Mantiene la altura especificada (h-20) */
+  object-fit: contain; /* Asegura que la imagen se muestre completa */
+}
+
+/* Estilo opcional para mejorar la apariencia */
+.obra-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.obra-card:hover {
+  transform: translateY(-5px); /* Efecto de elevación al pasar el mouse */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
