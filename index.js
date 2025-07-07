@@ -8,33 +8,27 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   // Inicializar Swiper
-  new Swiper(".swiper-container", {
-    loop: true,
-    pagination: {
-      el: ".swiper-pagination",
-      clickable: true,
-    },
-    navigation: {
-      nextEl: ".swiper-button-next",
-      prevEl: ".swiper-button-prev",
-    },
-    autoplay: {
-      delay: 5000,
-    },
-    breakpoints: {
-      640: {
-        slidesPerView: 1,
-      },
-      768: {
-        slidesPerView: 2,
-        spaceBetween: 20,
-      },
-      1024: {
-        slidesPerView: 3,
-        spaceBetween: 30,
-      },
-    },
-  });
+  new Swiper(".hero-swiper", {
+  loop: true,
+  effect: "fade", // Smooth fade transition like Diderot.Art
+  fadeEffect: { crossFade: true },
+  autoplay: {
+    delay: 5000,
+    disableOnInteraction: false, // Continue autoplay after user interaction
+  },
+  navigation: {
+    nextEl: ".swiper-button-next",
+    prevEl: ".swiper-button-prev",
+  },
+  pagination: {
+    el: ".swiper-pagination",
+    clickable: true,
+  },
+  slidesPerView: 1, // Always show one slide
+  spaceBetween: 0, // No gap between slides
+});
+
+  
 
   // Datos de obras
   const obras = [
