@@ -196,11 +196,12 @@ document.addEventListener("DOMContentLoaded", () => {
     modalBody.innerHTML = `
       <div class="swiper-container-modal">
         <div class="swiper-wrapper">
-          ${obra.images.map((img) => `<div class="swiper-slide"><img src="img/${img}" alt="${obra.title}" class="mx-auto"></div>`).join("")}
+          ${obra.images.map((img) => `<div class="swiper-slide"><img src="img/${img}" alt="${obra.title}" class="mx-auto" loading="lazy"></div>`).join("")}
         </div>
         <div class="swiper-pagination"></div>
         <div class="swiper-button-prev"></div>
         <div class="swiper-button-next"></div>
+        <div class="swiper-lazy-preloader"></div>
       </div>
       <h2 class="text-2xl font-serif text-green-800 mt-4">${obra.title}</h2>
       <p><strong>Año:</strong> ${obra.year}</p>
@@ -217,6 +218,9 @@ document.addEventListener("DOMContentLoaded", () => {
     modal.classList.remove("hidden");
     new Swiper(".swiper-container-modal", {
       loop: true,
+      lazy: {
+        loadPrevNext: true, // Carga las imágenes de los slides anteriores y siguientes
+      },
       pagination: {
         el: ".swiper-pagination",
         clickable: true,
