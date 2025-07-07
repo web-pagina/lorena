@@ -444,7 +444,7 @@ html, body {
 /* Additional desktop responsive adjustment */
 @media (min-width: 1024px) {
   .carousel .hero-swiper {
-    height: 35vh; /* Slightly reduced for very large screens */
+    height: 40vh; /* Slightly reduced for very large screens */
   }
 
   .carousel .swiper-pagination {
