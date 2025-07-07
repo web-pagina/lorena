@@ -116,7 +116,7 @@ document.addEventListener("DOMContentLoaded", () => {
       size: "?",
       price: 50000,
       description: "Las páginas de este libro prometen sumergirnos en una travesía profunda para que el tiempo se detenga y las voces externas e internas se apacígüen en un mar de colores y formas.",
-      images: ["obra9a.png"],
+      images: ["obra9a.png", "obra9b.png"],
     },
     {
       title: "Burbujas Polares",
