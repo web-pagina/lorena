@@ -273,6 +273,47 @@ html, body {
   color: #4a90e2;
 }
 
+/* vuelvo a poner lo viejo*/
+/* Modal swiper - mejor espaciado */
+.swiper-container-modal {
+  margin-bottom: 30px !important;
+  padding-bottom: 50px !important;
+}
+
+/* Puntos de paginación del modal */
+.swiper-container-modal .swiper-pagination {
+  bottom: 10px !important;
+  position: relative !important;
+  margin-top: 15px !important;
+}
+
+/* Flechas del modal - más pequeñas y mejor posicionadas */
+.swiper-container-modal .swiper-button-prev,
+.swiper-container-modal .swiper-button-next {
+  width: 30px !important;
+  height: 30px !important;
+  margin-top: -15px !important;
+}
+
+.swiper-container-modal .swiper-button-prev {
+  left: 5px !important;
+}
+
+.swiper-container-modal .swiper-button-next {
+  right: 5px !important;
+}
+
+/* Flechas más pequeñas */
+.swiper-container-modal .swiper-button-prev:after,
+.swiper-container-modal .swiper-button-next:after {
+  font-size: 16px !important;
+}
+
+/* Modal content con más padding arriba */
+.modal-content {
+  padding-top: 20px !important;
+}
+
 /* Responsive adjustments */
 @media (max-width: 768px) {
   .modal-content {
