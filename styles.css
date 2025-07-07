@@ -214,7 +214,7 @@ html, body {
 /* Carousel */
 .carousel .hero-swiper {
   max-width: 100%;
-  height: 50vh; /* Moderate height for desktop, larger than mobile but not excessive */
+  height: 50vh; /* Matches Diderot.art's proportional height */
   min-height: 200px;
   position: relative;
   overflow: hidden;
@@ -224,19 +224,40 @@ html, body {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  border-radius: 8px;
-  transition: transform 0.5s ease;
+  border-radius: 0; /* Removed rounding to match Diderot.art's sharp edges */
+  transition: opacity 0.5s ease; /* Subtle fade like Diderot.art */
+}
+
+.carousel .swiper-slide img:hover {
+  opacity: 0.9; /* Subtle hover effect like Diderot.art */
+}
+
+.carousel .swiper-slide {
+  position: relative;
+}
+
+.carousel .swiper-slide .overlay-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #fff;
+  text-align: center;
+  font-family: 'Playfair Display', serif; /* Matches your style, adjustable */
+  font-size: 2rem;
+  text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.7); /* Readable overlay */
+  pointer-events: none; /* Prevents text from blocking clicks */
 }
 
 .carousel .swiper-button-prev,
 .carousel .swiper-button-next {
-  background-color: rgba(0, 81, 135, 0.7);
+  background-color: rgba(0, 0, 0, 0.5); /* Darker, minimal like Diderot.art */
   border-radius: 50%;
-  width: 40px; /* Matched to mobile size */
+  width: 40px;
   height: 40px;
   transition: background-color 0.3s ease;
   z-index: 20;
-  opacity: 1 !important;
+  opacity: 0.8;
   cursor: pointer;
   position: absolute;
   top: 50%;
@@ -245,38 +266,38 @@ html, body {
 
 .carousel .swiper-button-prev:hover,
 .carousel .swiper-button-next:hover {
-  background-color: rgba(0, 81, 135, 0.9);
+  background-color: rgba(0, 0, 0, 0.7);
 }
 
 .carousel .swiper-button-prev:after,
 .carousel .swiper-button-next:after {
-  font-size: 20px; /* Matched to mobile size */
-  color: #ffffff;
+  font-size: 18px;
+  color: #fff;
   font-weight: bold;
 }
 
 .carousel .swiper-button-prev {
-  left: 5px; /* Matched to mobile positioning */
+  left: 10px;
 }
 
 .carousel .swiper-button-next {
-  right: 5px;
+  right: 10px;
 }
 
 .carousel .swiper-pagination {
-  bottom: 10px; /* Positioned over the image like mobile */
+  bottom: 10px;
   z-index: 20;
 }
 
 .carousel .swiper-pagination-bullet {
-  background-color: #84b6f4;
+  background-color: #fff;
   opacity: 0.7;
-  width: 10px;
-  height: 10px;
+  width: 8px;
+  height: 8px;
 }
 
 .carousel .swiper-pagination-bullet-active {
-  background-color: #005187;
+  background-color: #fff;
   opacity: 1;
 }
 
@@ -369,13 +390,13 @@ html, body {
 
   .carousel .swiper-button-prev,
   .carousel .swiper-button-next {
-    width: 40px;
-    height: 40px;
+    width: 30px;
+    height: 30px;
   }
 
   .carousel .swiper-button-prev:after,
   .carousel .swiper-button-next:after {
-    font-size: 20px;
+    font-size: 16px;
   }
 
   .carousel .swiper-button-prev {
@@ -387,7 +408,11 @@ html, body {
   }
 
   .carousel .swiper-pagination {
-    bottom: 10px;
+    bottom: 5px;
+  }
+
+  .carousel .swiper-slide .overlay-text {
+    font-size: 1.5rem;
   }
 
   .modal-content {
@@ -438,16 +463,5 @@ html, body {
 
   .swiper-container-modal .swiper-button-next {
     right: 5px;
-  }
-}
-
-/* Additional desktop responsive adjustment */
-@media (min-width: 1024px) {
-  .carousel .hero-swiper {
-    height: 40vh; /* Slightly reduced for very large screens */
-  }
-
-  .carousel .swiper-pagination {
-    bottom: 10px;
   }
 }
