@@ -215,7 +215,7 @@ html, body {
 .carousel .hero-swiper {
   max-width: 100%;
   height: 40vh; /* Moderate height for desktop, larger than mobile but not excessive */
-  min-height: 150px;
+  min-height: 200px;
   position: relative;
   overflow: hidden;
 }
