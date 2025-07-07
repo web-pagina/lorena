@@ -92,8 +92,6 @@ body {
   color: white;
 }
 
-/* Modal - lo borre */
-
 
 /* Footer */
 .footer a:focus {
@@ -216,7 +214,7 @@ html, body {
 /* Carousel */
 .carousel .hero-swiper {
   max-width: 100%;
-  height: 40vh; /* Adjusted from 50vh for consistency */
+  height: 60vh; /* Adjusted from 50vh for consistency */
   min-height: 200px;
   position: relative;
   overflow: hidden;
