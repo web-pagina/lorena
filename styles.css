@@ -261,7 +261,7 @@ html, body {
 @media (max-width: 768px) {
   /* Carousel principal - más espacio para paginación */
   .carousel .swiper-container {
-    padding-bottom: 60px !important;
+    padding-bottom: 30px !important;
     margin-bottom: 20px !important;
   }
   
