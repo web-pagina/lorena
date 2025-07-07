@@ -228,10 +228,6 @@ html, body {
   transition: transform 0.5s ease;
 }
 
-.carousel .swiper-slide img:hover {
-  transform: scale(1.05);
-}
-
 .carousel .swiper-button-prev,
 .carousel .swiper-button-next {
   background-color: rgba(0, 81, 135, 0.7);
