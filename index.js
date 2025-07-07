@@ -107,7 +107,7 @@ document.addEventListener("DOMContentLoaded", () => {
       size: "120 cm x 120 cm",
       price: 90000,
       description: "Libro Aruor.",
-      images: ["obra8a.png", "obra8b.png", "obra8c.png"],
+      images: ["obra8a.png", "obra8b.png"],
     },
     {
       title: "Libro del Agua",
