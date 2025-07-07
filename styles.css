@@ -215,3 +215,43 @@ body {
     display: none !important;
   }
 }
+
+/*Modifico responsive horizontal*/
+/* FIX OVERFLOW HORIZONTAL - Agregar al final del archivo */
+html, body {
+  overflow-x: hidden;
+  max-width: 100vw;
+}
+
+/* Contenedor principal sin overflow */
+.container {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+/* Filtros responsive */
+@media (max-width: 768px) {
+  .filters {
+    flex-wrap: wrap !important;
+    gap: 8px !important;
+    justify-content: center !important;
+  }
+  
+  .filter-btn {
+    font-size: 0.875rem !important;
+    padding: 8px 12px !important;
+    white-space: nowrap;
+  }
+  
+  /* Grid más pequeño en móvil */
+  .obras-grid .container {
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+  }
+}
+
+/* Asegurar que nada se salga */
+* {
+  max-width: 100%;
+  box-sizing: border-box;
+}
