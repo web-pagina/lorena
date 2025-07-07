@@ -295,9 +295,9 @@ html, body {
   transition: transform 0.5s ease;
 }
 
-.carousel .swiper-slide img:hover {
+/* .carousel .swiper-slide img:hover {
   transform: scale(1.05); /* Subtle zoom effect on hover */
-}
+/* } /*/
 
 .carousel .swiper-button-prev,
 .carousel .swiper-button-next {
