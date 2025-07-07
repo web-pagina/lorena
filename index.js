@@ -62,7 +62,7 @@ document.addEventListener("DOMContentLoaded", () => {
       size: "120 cm x 120 cm",
       price: 90000,
       description: "Juego de mesa de estrategia sobre especies y medioambiente. Con ilustraciones dibujadas a mano, diseño y textos sobre cuestiones ambientales del planeta, este juego ha obtenido la Mención al Sello Buen Diseño argentino.",
-      images: ["obra3a.png", "obra3b.png", "obra3c.png", "obra3d.png"],
+      images: ["obra3a.png", "obra3b.png", "obra3c.png", "obra3d.png", "obra3e.png", "obra3f.png"],
     },
     {
       title: "El Panda del Mar",
