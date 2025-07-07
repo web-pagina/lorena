@@ -256,3 +256,78 @@ html, body {
   box-sizing: border-box;
 }
 
+/*CSS NUEVO PARA SOLCUIONAR REWSPONSVE*/
+/* FIX SWIPER EN MÓVIL - Espaciado y posicionamiento */
+@media (max-width: 768px) {
+  /* Carousel principal - más espacio para paginación */
+  .carousel .swiper-container {
+    padding-bottom: 60px !important;
+    margin-bottom: 20px !important;
+  }
+  
+  /* Puntos de paginación del carousel principal */
+  .carousel .swiper-pagination {
+    bottom: 20px !important;
+  }
+  
+  /* Flechas del carousel principal - más pequeñas y mejor posicionadas */
+  .carousel .swiper-button-prev,
+  .carousel .swiper-button-next {
+    width: 35px !important;
+    height: 35px !important;
+    margin-top: -17px !important;
+  }
+  
+  .carousel .swiper-button-prev {
+    left: 10px !important;
+  }
+  
+  .carousel .swiper-button-next {
+    right: 10px !important;
+  }
+  
+  /* Modal swiper - mejor espaciado */
+  .swiper-container-modal {
+    margin-bottom: 30px !important;
+    padding-bottom: 50px !important;
+  }
+  
+  /* Puntos de paginación del modal */
+  .swiper-container-modal .swiper-pagination {
+    bottom: 10px !important;
+    position: relative !important;
+    margin-top: 15px !important;
+  }
+  
+  /* Flechas del modal - más pequeñas y mejor posicionadas */
+  .swiper-container-modal .swiper-button-prev,
+  .swiper-container-modal .swiper-button-next {
+    width: 30px !important;
+    height: 30px !important;
+    margin-top: -15px !important;
+  }
+  
+  .swiper-container-modal .swiper-button-prev {
+    left: 5px !important;
+  }
+  
+  .swiper-container-modal .swiper-button-next {
+    right: 5px !important;
+  }
+  
+  /* Flechas más pequeñas */
+  .swiper-container-modal .swiper-button-prev:after,
+  .swiper-container-modal .swiper-button-next:after {
+    font-size: 16px !important;
+  }
+  
+  /* Más espacio entre carousel y filtros */
+  .obras-grid {
+    padding-top: 20px !important;
+  }
+  
+  /* Modal content con más padding arriba */
+  .modal-content {
+    padding-top: 20px !important;
+  }
+}
