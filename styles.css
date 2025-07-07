@@ -326,6 +326,38 @@ html, body {
   color: #4a90e2;
 }
 
+.swiper-container-modal .swiper-button-prev,
+.swiper-container-modal .swiper-button-next {
+  background-color: rgba(0, 81, 135, 0.7);
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+  transition: background-color 0.3s ease;
+  z-index: 10;
+  opacity: 1 !important;
+  cursor: pointer;
+}
+
+.swiper-container-modal .swiper-button-prev:hover,
+.swiper-container-modal .swiper-button-next:hover {
+  background-color: rgba(0, 81, 135, 0.9);
+}
+
+.swiper-container-modal .swiper-button-prev:after,
+.swiper-container-modal .swiper-button-next:after {
+  font-size: 24px;
+  color: #ffffff;
+  font-weight: bold;
+}
+
+.swiper-container-modal .swiper-button-prev {
+  left: 10px;
+}
+
+.swiper-container-modal .swiper-button-next {
+  right: 10px;
+}
+
 /* Responsive adjustments */
 @media (max-width: 768px) {
   .carousel .hero-swiper {
@@ -385,5 +417,24 @@ html, body {
   .swiper-container-modal .swiper-pagination {
     bottom: 15px;
     margin-top: 15px;
+  }
+
+  .swiper-container-modal .swiper-button-prev,
+  .swiper-container-modal .swiper-button-next {
+    width: 40px;
+    height: 40px;
+  }
+
+  .swiper-container-modal .swiper-button-prev:after,
+  .swiper-container-modal .swiper-button-next:after {
+    font-size: 20px;
+  }
+
+  .swiper-container-modal .swiper-button-prev {
+    left: 5px;
+  }
+
+  .swiper-container-modal .swiper-button-next {
+    right: 5px;
   }
 }
