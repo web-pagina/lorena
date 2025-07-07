@@ -95,21 +95,8 @@ body {
   color: white;
 }
 
-/* Modal */
-.modal-content {
-  max-height: 90vh;
-  overflow-y: auto;
-}
+/* Modal - lo borre */
 
-.modal-close:hover {
-  color: #2563eb;
-}
-
-.modal img {
-  max-height: 400px;
-  object-fit: contain;
-  border-radius: 8px;
-}
 
 /* Footer */
 .footer a:focus {
@@ -231,51 +218,89 @@ html, body {
 
 /*CSS NUEVO PARA SOLCUIONAR REWSPONSVE*/
 /* FIX SWIPER EN MÓVIL - Espaciado y posicionamiento */
-  /* Modal swiper - mejor espaciado */
-  .swiper-container-modal {
-    margin-bottom: 30px !important;
-    padding-bottom: 50px !important;
-  }
-  
-  /* Puntos de paginación del modal */
-  .swiper-container-modal .swiper-pagination {
-    bottom: 10px !important;
-    position: relative !important;
-    margin-top: 15px !important;
-  }
-  
-  /* Flechas del modal - más pequeñas y mejor posicionadas */
-  .swiper-container-modal .swiper-button-prev,
-  .swiper-container-modal .swiper-button-next {
-    width: 30px !important;
-    height: 30px !important;
-    margin-top: -15px !important;
-  }
-  
-  .swiper-container-modal .swiper-button-prev {
-    left: 5px !important;
-  }
-  
-  .swiper-container-modal .swiper-button-next {
-    right: 5px !important;
-  }
-  
-  /* Flechas más pequeñas */
-  .swiper-container-modal .swiper-button-prev:after,
-  .swiper-container-modal .swiper-button-next:after {
-    font-size: 16px !important;
-  }
-  
+
+
   /* Más espacio entre carousel y filtros */
   .obras-grid {
     padding-top: 20px !important;
   }
   
-  /* Modal content con más padding arriba */
+  /* Modal */
+.modal-content {
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+  z-index: 50;
+}
+
+.modal-close {
+  z-index: 60; /* Above all modal content */
+  font-size: 1.5rem;
+}
+
+.modal-close:hover {
+  color: #2563eb;
+}
+
+.modal-card {
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.swiper-container-modal {
+  width: 100%;
+  overflow: hidden; /* Prevent horizontal scrolling */
+}
+
+.swiper-slide img {
+  max-height: 256px; /* Matches h-64 from HTML */
+  object-fit: contain;
+}
+
+.modal-text {
+  font-size: 1rem;
+  color: #444;
+}
+
+.modal-text h2 {
+  font-family: 'Playfair Display', serif;
+  color: #1e3a5f;
+}
+
+.modal-text p {
+  margin: 0.5rem 0;
+  color: #4a90e2;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
   .modal-content {
-    padding-top: 20px !important;
+    max-height: 85vh;
+    padding: 20px;
   }
 
+  .modal-close {
+    top: 10px;
+    right: 10px;
+  }
+
+  .swiper-slide img {
+    max-height: 200px; /* Smaller on mobile to avoid overlap */
+  }
+
+  .modal-card {
+    max-width: 90%;
+  }
+
+  .modal-text {
+    font-size: 0.9rem;
+  }
+
+  .modal-text h2 {
+    font-size: 1.5rem;
+  }
+}
 
   /*NUEVO CSS PARA EL CARRUSEL*/
   /* Carousel */

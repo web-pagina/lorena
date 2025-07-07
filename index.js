@@ -209,45 +209,51 @@ renderObras(obras);
 
   // Modal para detalles
   contenedor.addEventListener("click", (e) => {
-  const card = e.target.closest(".obra-card");
-  if (!card) return;
-  const index = card.getAttribute("data-index");
-  const obra = obras[index];
+    const card = e.target.closest(".obra-card");
+    if (!card) return;
+    const index = card.getAttribute("data-index");
+    const obra = obras[index];
 
-  modalBody.innerHTML = `
-    <div class="swiper-container-modal">
-      <div class="swiper-wrapper">
-        ${obra.images.map((img) => `<div class="swiper-slide"><img src="img/${img}" alt="${obra.title}" class="mx-auto"></div>`).join("")}
+    modalBody.innerHTML = `
+      <div class="modal-card p-4 bg-gray-50 rounded-lg shadow-md">
+        <div class="swiper-container-modal w-full overflow-hidden">
+          <div class="swiper-wrapper">
+            ${obra.images.map((img) => `<div class="swiper-slide"><img src="img/${img}" alt="${obra.title}" class="w-full h-64 object-contain rounded-lg"></div>`).join("")}
+          </div>
+          <div class="swiper-pagination mt-4"></div>
+          <div class="swiper-button-prev"></div>
+          <div class="swiper-button-next"></div>
+        </div>
+        <div class="modal-text mt-6 text-center">
+          <h2 class="text-2xl font-serif text-green-800">${obra.title}</h2>
+          <p><strong>Año:</strong> ${obra.year}</p>
+          <p><strong>Técnica:</strong> ${obra.technique}</p>
+          <p><strong>Tamaño:</strong> ${obra.size || "No especificado"}</p>
+          <p><strong>Precio:</strong> $${obra.price}</p>
+          <p>${obra.description}</p>
+          <a href="https://wa.me/5491167852021?text=Hola%20Lorena,%20estoy%20interesado/a%20en%20la%20obra%20'${encodeURIComponent(obra.title)}'" 
+            target="_blank" 
+            class="btn-whatsapp bg-green-500 text-white px-4 py-2 rounded-lg mt-4 inline-block">
+            Consultar por WhatsApp
+          </a>
+        </div>
       </div>
-      <div class="swiper-pagination"></div>
-      <div class="swiper-button-prev"></div>
-      <div class="swiper-button-next"></div>
-    </div>
-    <h2 class="text-2xl font-serif text-green-800 mt-4">${obra.title}</h2>
-    <p><strong>Año:</strong> ${obra.year}</p>
-    <p><strong>Técnica:</strong> ${obra.technique}</p>
-    <p><strong>Tamaño:</strong> ${obra.size}</p>
-    <p><strong>Precio:</strong> $${obra.price}</p>
-    <p>${obra.description}</p>
-    <a href="https://wa.me/5491167852021?text=Hola%20Lorena,%20estoy%20interesado/a%20en%20la%20obra%20'${encodeURIComponent(obra.title)}'" 
-       target="_blank" 
-       class="btn-whatsapp bg-green-500 text-white px-4 py-2 rounded-lg mt-4 inline-block">
-       Consultar por WhatsApp
-    </a>
-  `;
-  modal.classList.remove("hidden");
-  new Swiper(".swiper-container-modal", {
-    loop: true,
-    pagination: {
-      el: ".swiper-pagination",
-      clickable: true,
-    },
-    navigation: {
-      nextEl: ".swiper-button-next",
-      prevEl: ".swiper-button-prev",
-    },
+    `;
+    modal.classList.remove("hidden");
+    new Swiper(".swiper-container-modal", {
+      loop: true,
+      pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+      },
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      },
+      slidesPerView: 1,
+      spaceBetween: 10,
+    });
   });
-});
 
   modalClose.addEventListener("click", () => modal.classList.add("hidden"));
   modal.addEventListener("click", (e) => {
