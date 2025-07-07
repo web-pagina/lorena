@@ -196,7 +196,7 @@ document.addEventListener("DOMContentLoaded", () => {
     modalBody.innerHTML = `
       <div class="swiper-container-modal">
         <div class="swiper-wrapper">
-          ${obra.images.map((img) => `<div class="swiper-slide"><img src="img/${img}" alt="${obra.title}" class="mx-auto" loading="lazy"></div>`).join("")}
+          ${obra.images.map((img) => `<div class="swiper-slide"><img src="img/${img}" alt="${obra.title}" class="mx-auto"></div>`).join("")}
         </div>
         <div class="swiper-pagination"></div>
         <div class="swiper-button-prev"></div>
