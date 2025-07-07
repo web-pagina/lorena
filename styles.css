@@ -230,9 +230,6 @@ html, body {
   transition: transform 0.5s ease;
 }
 
-.carousel .swiper-slide img:hover {
-  transform: scale(1.05); /* Re-enabled subtle zoom effect */
-}
 
 .carousel .swiper-button-prev,
 .carousel .swiper-button-next {
