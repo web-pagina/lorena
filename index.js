@@ -163,14 +163,23 @@ document.addEventListener("DOMContentLoaded", () => {
   const modalClose = document.querySelector(".modal-close");
 
   function renderObras(filteredObras) {
-    contenedor.innerHTML = filteredObras.map((obra) => `
-      <div class="obra-card p-4" data-technique="${obra.technique}">
-        <img src="img/${obra.images[0]}" alt="${obra.title}" class="mb-4" loading="lazy">
-        <h3 class="text-lg font-semibold">${obra.title}</h3>
-        <p>${obra.technique}</p>
-        <p class="text-green-600 font-bold">$${obra.price}</p>
-      </div>
-    `).join("");
+    contenedor.innerHTML = "";
+    if (filteredObras.length === 0) {
+      contenedor.innerHTML = `
+        <div class="text-center p-4 text-gray-600">
+          Esta categoría se encuentra vacía por el momento.
+        </div>
+      `;
+    } else {
+      contenedor.innerHTML = filteredObras.map((obra) => `
+        <div class="obra-card p-4" data-technique="${obra.technique}">
+          <img src="img/${obra.images[0]}" alt="${obra.title}" class="mb-4" loading="lazy">
+          <h3 class="text-lg font-semibold">${obra.title}</h3>
+          <p>${obra.technique}</p>
+          <p class="text-green-600 font-bold">$${obra.price}</p>
+        </div>
+      `).join("");
+    }
   }
 
   renderObras(obras);
