@@ -214,7 +214,7 @@ html, body {
 /* Carousel */
 .carousel .hero-swiper {
   max-width: 100%;
-  height: 70vh;
+  height: 60vh; /* Reduced from 70vh for better scaling on desktop */
   min-height: 200px;
   position: relative;
   overflow: hidden;
@@ -228,6 +228,10 @@ html, body {
   transition: transform 0.5s ease;
 }
 
+.carousel .swiper-slide img:hover {
+  transform: scale(1.05);
+}
+
 .carousel .swiper-button-prev,
 .carousel .swiper-button-next {
   background-color: rgba(0, 81, 135, 0.7);
@@ -235,12 +239,12 @@ html, body {
   width: 48px;
   height: 48px;
   transition: background-color 0.3s ease;
-  z-index: 20; /* Above the image */
+  z-index: 20;
   opacity: 1 !important;
   cursor: pointer;
   position: absolute;
   top: 50%;
-  transform: translateY(-50%); /* Center vertically */
+  transform: translateY(-50%);
 }
 
 .carousel .swiper-button-prev:hover,
@@ -264,7 +268,7 @@ html, body {
 }
 
 .carousel .swiper-pagination {
-  bottom: 20px; /* Moved higher for better alignment */
+  bottom: 20px;
   z-index: 20;
 }
 
@@ -438,5 +442,16 @@ html, body {
 
   .swiper-container-modal .swiper-button-next {
     right: 5px;
+  }
+}
+
+/* Additional desktop responsive adjustment */
+@media (min-width: 1024px) {
+  .carousel .hero-swiper {
+    height: 50vh; /* Reduced further for very large screens */
+  }
+
+  .carousel .swiper-pagination {
+    bottom: 15px; /* Adjusted for larger screens */
   }
 }
