@@ -163,26 +163,26 @@ document.addEventListener("DOMContentLoaded", () => {
   const modalClose = document.querySelector(".modal-close");
 
   function renderObras(filteredObras) {
-    contenedor.innerHTML = "";
-    if (filteredObras.length === 0) {
-      contenedor.innerHTML = `
-        <div class="text-center p-4 text-gray-600">
-          Esta categoría se encuentra vacía por el momento.
-        </div>
-      `;
-    } else {
-      contenedor.innerHTML = filteredObras.map((obra) => `
-        <div class="obra-card p-4" data-technique="${obra.technique}">
-          <img src="img/${obra.images[0]}" alt="${obra.title}" class="mb-4" loading="lazy">
-          <h3 class="text-lg font-semibold">${obra.title}</h3>
-          <p>${obra.technique}</p>
-          <p class="text-green-600 font-bold">$${obra.price}</p>
-        </div>
-      `).join("");
-    }
+  contenedor.innerHTML = "";
+  if (filteredObras.length === 0) {
+    contenedor.innerHTML = `
+      <div class="text-center p-4 text-gray-600">
+        Esta categoría se encuentra vacía por el momento.
+      </div>
+    `;
+  } else {
+    contenedor.innerHTML = filteredObras.map((obra, index) => `
+      <div class="obra-card p-4" data-technique="${obra.technique}" data-index="${obras.indexOf(obra)}">
+        <img src="img/${obra.images[0]}" alt="${obra.title}" class="mb-4" loading="lazy">
+        <h3 class="text-lg font-semibold">${obra.title}</h3>
+        <p>${obra.technique}</p>
+        <p class="text-green-600 font-bold">$${obra.price}</p>
+      </div>
+    `).join("");
   }
+}
 
-  renderObras(obras);
+renderObras(obras);
 
   // Filtros
   document.querySelectorAll(".filter-btn").forEach((btn) => {
@@ -197,45 +197,45 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Modal para detalles
   contenedor.addEventListener("click", (e) => {
-    const card = e.target.closest(".obra-card");
-    if (!card) return;
-    const index = Array.from(contenedor.children).indexOf(card);
-    const obra = obras[index];
+  const card = e.target.closest(".obra-card");
+  if (!card) return;
+  const index = card.getAttribute("data-index");
+  const obra = obras[index];
 
-    modalBody.innerHTML = `
-      <div class="swiper-container-modal">
-        <div class="swiper-wrapper">
-          ${obra.images.map((img) => `<div class="swiper-slide"><img src="img/${img}" alt="${obra.title}" class="mx-auto"></div>`).join("")}
-        </div>
-        <div class="swiper-pagination"></div>
-        <div class="swiper-button-prev"></div>
-        <div class="swiper-button-next"></div>
+  modalBody.innerHTML = `
+    <div class="swiper-container-modal">
+      <div class="swiper-wrapper">
+        ${obra.images.map((img) => `<div class="swiper-slide"><img src="img/${img}" alt="${obra.title}" class="mx-auto"></div>`).join("")}
       </div>
-      <h2 class="text-2xl font-serif text-green-800 mt-4">${obra.title}</h2>
-      <p><strong>Año:</strong> ${obra.year}</p>
-      <p><strong>Técnica:</strong> ${obra.technique}</p>
-      <p><strong>Tamaño:</strong> ${obra.size}</p>
-      <p><strong>Precio:</strong> $${obra.price}</p>
-      <p>${obra.description}</p>
-      <a href="https://wa.me/5491167852021?text=Hola%20Lorena,%20estoy%20interesado/a%20en%20la%20obra%20'${encodeURIComponent(obra.title)}'" 
-         target="_blank" 
-         class="btn-whatsapp bg-green-500 text-white px-4 py-2 rounded-lg mt-4 inline-block">
-         Consultar por WhatsApp
-      </a>
-    `;
-    modal.classList.remove("hidden");
-    new Swiper(".swiper-container-modal", {
-      loop: true,
-      pagination: {
-        el: ".swiper-pagination",
-        clickable: true,
-      },
-      navigation: {
-        nextEl: ".swiper-button-next",
-        prevEl: ".swiper-button-prev",
-      },
-    });
+      <div class="swiper-pagination"></div>
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-button-next"></div>
+    </div>
+    <h2 class="text-2xl font-serif text-green-800 mt-4">${obra.title}</h2>
+    <p><strong>Año:</strong> ${obra.year}</p>
+    <p><strong>Técnica:</strong> ${obra.technique}</p>
+    <p><strong>Tamaño:</strong> ${obra.size}</p>
+    <p><strong>Precio:</strong> $${obra.price}</p>
+    <p>${obra.description}</p>
+    <a href="https://wa.me/5491167852021?text=Hola%20Lorena,%20estoy%20interesado/a%20en%20la%20obra%20'${encodeURIComponent(obra.title)}'" 
+       target="_blank" 
+       class="btn-whatsapp bg-green-500 text-white px-4 py-2 rounded-lg mt-4 inline-block">
+       Consultar por WhatsApp
+    </a>
+  `;
+  modal.classList.remove("hidden");
+  new Swiper(".swiper-container-modal", {
+    loop: true,
+    pagination: {
+      el: ".swiper-pagination",
+      clickable: true,
+    },
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
   });
+});
 
   modalClose.addEventListener("click", () => modal.classList.add("hidden"));
   modal.addEventListener("click", (e) => {
