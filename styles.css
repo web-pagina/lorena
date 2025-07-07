@@ -183,3 +183,35 @@ body {
 .about-section img:hover {
   transform: scale(1.05);
 }
+
+/*Pruebo que funcione el menu hamburguesa*/
+
+/* FIX MENÚ HAMBURGUESA - Agregar al final del archivo */
+@media (max-width: 768px) {
+  /* Forzar que el navbar se muestre cuando tiene clase 'open' */
+  .navbar.open {
+    display: flex !important;
+    right: 0 !important;
+  }
+  
+  /* Asegurar que el botón hamburguesa se vea */
+  .menu-toggle {
+    display: block !important;
+  }
+  
+  /* Ocultar el navbar por defecto en móvil */
+  .navbar {
+    display: none !important;
+  }
+}
+
+/* En desktop, mostrar navbar normal */
+@media (min-width: 769px) {
+  .navbar {
+    display: flex !important;
+  }
+  
+  .menu-toggle {
+    display: none !important;
+  }
+}
