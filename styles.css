@@ -55,9 +55,6 @@ body {
   }
 }
 
-/* Carousel */
-
-
 /* Obras Grid */
 .obras-grid .obra-card {
   background-color: #f0f8ff;
@@ -216,16 +213,77 @@ html, body {
   box-sizing: border-box;
 }
 
-/*CSS NUEVO PARA SOLCUIONAR REWSPONSVE*/
-/* FIX SWIPER EN MÓVIL - Espaciado y posicionamiento */
+/* Carousel */
+.carousel .hero-swiper {
+  max-width: 100%;
+  height: 40vh; /* Adjusted from 50vh for consistency */
+  min-height: 200px;
+  position: relative;
+  overflow: hidden;
+}
 
+.carousel .swiper-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+  transition: transform 0.5s ease;
+}
 
-  /* Más espacio entre carousel y filtros */
-  .obras-grid {
-    padding-top: 20px !important;
-  }
-  
-  /* Modal */
+.carousel .swiper-slide img:hover {
+  transform: scale(1.05); /* Re-enabled subtle zoom effect */
+}
+
+.carousel .swiper-button-prev,
+.carousel .swiper-button-next {
+  background-color: rgba(0, 81, 135, 0.7);
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+  transition: background-color 0.3s ease;
+  z-index: 10;
+  opacity: 1 !important;
+  cursor: pointer;
+}
+
+.carousel .swiper-button-prev:hover,
+.carousel .swiper-button-next:hover {
+  background-color: rgba(0, 81, 135, 0.9);
+}
+
+.carousel .swiper-button-prev:after,
+.carousel .swiper-button-next:after {
+  font-size: 24px;
+  color: #ffffff;
+  font-weight: bold;
+}
+
+.carousel .swiper-button-prev {
+  left: 10px;
+}
+
+.carousel .swiper-button-next {
+  right: 10px;
+}
+
+.carousel .swiper-pagination {
+  bottom: 40px; /* Increased for more spacing */
+  z-index: 20; /* Above slides and images */
+}
+
+.carousel .swiper-pagination-bullet {
+  background-color: #84b6f4;
+  opacity: 0.7;
+  width: 10px;
+  height: 10px;
+}
+
+.carousel .swiper-pagination-bullet-active {
+  background-color: #005187;
+  opacity: 1;
+}
+
+/* Modal */
 .modal-content {
   max-height: 90vh;
   overflow-y: auto;
@@ -234,7 +292,7 @@ html, body {
 }
 
 .modal-close {
-  z-index: 60; /* Above all modal content */
+  z-index: 60;
   font-size: 1.5rem;
 }
 
@@ -250,11 +308,11 @@ html, body {
 
 .swiper-container-modal {
   width: 100%;
-  overflow: hidden; /* Prevent horizontal scrolling */
+  overflow: hidden;
 }
 
 .swiper-slide img {
-  max-height: 256px; /* Matches h-64 from HTML */
+  max-height: 256px;
   object-fit: contain;
 }
 
@@ -273,152 +331,11 @@ html, body {
   color: #4a90e2;
 }
 
-/* vuelvo a poner lo viejo*/
-/* Modal swiper - mejor espaciado */
-.swiper-container-modal {
-  margin-bottom: 30px !important;
-  padding-bottom: 50px !important;
-}
-
-/* Puntos de paginación del modal */
-.swiper-container-modal .swiper-pagination {
-  bottom: 10px !important;
-  position: relative !important;
-  margin-top: 15px !important;
-}
-
-/* Flechas del modal - más pequeñas y mejor posicionadas */
-.swiper-container-modal .swiper-button-prev,
-.swiper-container-modal .swiper-button-next {
-  width: 30px !important;
-  height: 30px !important;
-  margin-top: -15px !important;
-}
-
-.swiper-container-modal .swiper-button-prev {
-  left: 5px !important;
-}
-
-.swiper-container-modal .swiper-button-next {
-  right: 5px !important;
-}
-
-/* Flechas más pequeñas */
-.swiper-container-modal .swiper-button-prev:after,
-.swiper-container-modal .swiper-button-next:after {
-  font-size: 16px !important;
-}
-
-/* Modal content con más padding arriba */
-.modal-content {
-  padding-top: 20px !important;
-}
-
-/* Responsive adjustments */
-@media (max-width: 768px) {
-  .modal-content {
-    max-height: 85vh;
-    padding: 20px;
-  }
-
-  .modal-close {
-    top: 10px;
-    right: 10px;
-  }
-
-  .swiper-slide img {
-    max-height: 200px; /* Smaller on mobile to avoid overlap */
-  }
-
-  .modal-card {
-    max-width: 90%;
-  }
-
-  .modal-text {
-    font-size: 0.9rem;
-  }
-
-  .modal-text h2 {
-    font-size: 1.5rem;
-  }
-}
-
-  /*NUEVO CSS PARA EL CARRUSEL*/
-  /* Carousel */
-.carousel .hero-swiper {
-  max-width: 100%;
-  height: 50vh; /* Reduced from 60vh for smaller images */
-  min-height: 200px; /* Reduced from 300px for smaller minimum size */
-  position: relative;
-  overflow: hidden;
-}
-
-.carousel .swiper-slide img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover; /* Ensure images fill the slide */
-  border-radius: 8px;
-  transition: transform 0.5s ease;
-}
-
-/* .carousel .swiper-slide img:hover {
-  transform: scale(1.05); /* Subtle zoom effect on hover */
-/* } /*/
-
-.carousel .swiper-button-prev,
-.carousel .swiper-button-next {
-  background-color: rgba(0, 81, 135, 0.7); /* Matches #005187 with opacity */
-  border-radius: 50%;
-  width: 48px;
-  height: 48px;
-  transition: background-color 0.3s ease;
-  z-index: 10; /* Ensure arrows are above other elements */
-  opacity: 1 !important; /* Prevent Tailwind or other styles from hiding */
-  cursor: pointer; /* Ensure clickable appearance */
-}
-
-.carousel .swiper-button-prev:hover,
-.carousel .swiper-button-next:hover {
-  background-color: rgba(0, 81, 135, 0.9); /* Darker on hover */
-}
-
-.carousel .swiper-button-prev:after,
-.carousel .swiper-button-next:after {
-  font-size: 24px;
-  color: #ffffff;
-  font-weight: bold; /* Ensure arrows are visible */
-}
-
-.carousel .swiper-button-prev {
-  left: 10px; /* Position arrows clearly within viewport */
-}
-
-.carousel .swiper-button-next {
-  right: 10px;
-}
-
-.carousel .swiper-pagination {
-  bottom: 20px;
-  z-index: 10; /* Ensure pagination is above slides */
-}
-
-.carousel .swiper-pagination-bullet {
-  background-color: #84b6f4; /* Matches your light blue */
-  opacity: 0.7;
-  width: 10px;
-  height: 10px;
-}
-
-.carousel .swiper-pagination-bullet-active {
-  background-color: #005187; /* Matches your dark blue */
-  opacity: 1;
-}
-
 /* Responsive adjustments */
 @media (max-width: 768px) {
   .carousel .hero-swiper {
-    height: 30vh; /* Reduced from 50vh for smaller images on mobile */
-    min-height: 150px; /* Reduced from 250px */
+    height: 30vh;
+    min-height: 150px;
   }
 
   .carousel .swiper-button-prev,
@@ -441,6 +358,37 @@ html, body {
   }
 
   .carousel .swiper-pagination {
+    bottom: 30px;
+  }
+
+  .modal-content {
+    max-height: 85vh;
+    padding: 20px;
+  }
+
+  .modal-close {
+    top: 10px;
+    right: 10px;
+  }
+
+  .swiper-slide img {
+    max-height: 200px;
+  }
+
+  .modal-card {
+    max-width: 90%;
+  }
+
+  .modal-text {
+    font-size: 0.9rem;
+  }
+
+  .modal-text h2 {
+    font-size: 1.5rem;
+  }
+
+  .swiper-container-modal .swiper-pagination {
     bottom: 15px;
+    margin-top: 15px;
   }
 }
