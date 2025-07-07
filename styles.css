@@ -263,7 +263,7 @@ html, body {
 
 .carousel .swiper-pagination {
   bottom: 40px; /* Increased for more spacing */
-  z-index: 20; /* Above slides and images */
+  z-index: 10; /* Above slides and images */
 }
 
 .carousel .swiper-pagination-bullet {
