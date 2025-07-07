@@ -91,14 +91,14 @@ document.addEventListener("DOMContentLoaded", () => {
       description: "Cuerpos diminutos albergan un sentido de felicidad absoluta con la pareja elegida. De por vida unidos por lazos invisbles e inquebrantables. Frágiles y poderosos. Combinación fascinante...",
       images: ["obra6a.png", "obra6b.png"],
     },
-        {
-      title: "Pack postales",
+    {
+      title: "Pack postales (1)",
       year: 2024,
       technique: "Postales",
       size: "120 cm x 120 cm",
       price: 90000,
       description: "Pack de 4 postales.",
-      images: ["obra7a.png", "obra7b.png", "obra7c.png", "obra7d.png", "obra7e.png"],
+      images: ["obra7a.png", "obra7b.png"],
     },
     {
       title: "Libro Aruor",
@@ -153,6 +153,24 @@ document.addEventListener("DOMContentLoaded", () => {
       price: 90000,
       description: "La seguridad del hielo firme da el tiempo necesario para la maduración física de una comunidad de seres adaptados a una de las regiones mas inhóspitas del planeta.",
       images: ["obra13a.png", "obra13b.png"],
+    },
+    {
+      title: "Pack postales (2)",
+      year: 2024,
+      technique: "Postales",
+      size: "120 cm x 120 cm",
+      price: 90000,
+      description: "Pack de 4 postales.",
+      images: ["obra14a.png", "obra14b.png", "obra14c.png", "obra14d.png"],
+    },
+    {
+      title: "Guardianes en el Oceano",
+      year: 2018,
+      technique: "Acrílico",
+      size: "1,36 m x 1,52 m",
+      price: 90000,
+      description: "Los mal afamados tiburones, son los verdaderos protectores de las barreras coralinas y de la diversidad de especies del océano. Y esto es lo que no vemos en las películas... -Miedo- debería darnos su ausencia en los mares.",
+      images: ["obra15a.png", "obra15b.png"],
     }
   ];
 
