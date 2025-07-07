@@ -47,7 +47,7 @@ document.addEventListener("DOMContentLoaded", () => {
       images: ["obra1a.png", "obra1b.png", "obra1c.png", "obra1d.png", "obra1e.png"],
     },
     {
-      title: "Miradas desde la osucridad",
+      title: "Miradas desde la oscuridad",
       year: 2019,
       technique: "Acrílico",
       size: "120 cm x 120 cm",
