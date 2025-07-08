@@ -213,19 +213,22 @@ html, body {
 
 /* Carousel */
 .carousel .hero-swiper {
-  max-width: 100%;
-  height: 30vh;
-  min-height: 200px;
+  max-width: 100vw;
+  width: 100%;
+  height: 30vh; /* Base height for mobile */
+  min-height: 150px;
   position: relative;
   overflow: hidden;
 }
 
 .carousel .swiper-slide img {
   width: 100%;
-  height: 100%; /* Aligns with h-[28vh] from HTML, ensuring fill */
-  object-fit: cover;
+  height: 100%; /* Fills the container height */
+  object-fit: cover; /* Ensures full coverage like Diderot.art */
   border-radius: 0;
   transition: opacity 0.5s ease;
+  min-height: 30vh; /* Minimum visibility */
+  max-height: 40vh; /* Prevents overstretching on large screens */
 }
 
 .carousel .swiper-slide img:hover {
@@ -251,22 +254,22 @@ html, body {
 
 .carousel .swiper-button-prev,
 .carousel .swiper-button-next {
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.3); /* Subtle like Diderot.art */
   border-radius: 50%;
   width: 40px;
   height: 40px;
   transition: background-color 0.3s ease;
   z-index: 20;
-  opacity: 0.8;
+  opacity: 0.7;
   cursor: pointer;
   position: absolute;
-  top: 70%;
+  top: 50%;
   transform: translateY(-50%);
 }
 
 .carousel .swiper-button-prev:hover,
 .carousel .swiper-button-next:hover {
-  background-color: rgba(0, 0, 0, 0.7);
+  background-color: rgba(0, 0, 0, 0.5);
 }
 
 .carousel .swiper-button-prev:after,
@@ -277,16 +280,17 @@ html, body {
 }
 
 .carousel .swiper-button-prev {
-  left: 10px;
+  left: 10%; /* Positioned like Diderot.art */
 }
 
 .carousel .swiper-button-next {
-  right: 10px;
+  right: 10%;
 }
 
 .carousel .swiper-pagination {
-  bottom: 15px;
+  bottom: 10px;
   z-index: 30;
+  text-align: center;
 }
 
 .carousel .swiper-pagination-bullet {
@@ -294,11 +298,61 @@ html, body {
   opacity: 0.7;
   width: 8px;
   height: 8px;
+  margin: 0 5px;
 }
 
 .carousel .swiper-pagination-bullet-active {
   background-color: #fff;
   opacity: 1;
+}
+
+/* Responsive adjustments */
+@media (min-width: 768px) {
+  .carousel .hero-swiper {
+    height: 40vh; /* Adjusted for large screens */
+  }
+
+  .carousel .swiper-button-prev {
+    left: 10%;
+  }
+
+  .carousel .swiper-button-next {
+    right: 10%;
+  }
+}
+
+@media (max-width: 768px) {
+  .carousel .hero-swiper {
+    height: 30vh;
+    min-height: 150px;
+  }
+
+  .carousel .swiper-button-prev,
+  .carousel .swiper-button-next {
+    width: 30px;
+    height: 30px;
+  }
+
+  .carousel .swiper-button-prev:after,
+  .carousel .swiper-button-next:after {
+    font-size: 16px;
+  }
+
+  .carousel .swiper-button-prev {
+    left: 5%;
+  }
+
+  .carousel .swiper-button-next {
+    right: 5%;
+  }
+
+  .carousel .swiper-pagination {
+    bottom: 5px;
+  }
+
+  .carousel .swiper-slide .overlay-text {
+    font-size: 1.5rem;
+  }
 }
 
 /* Modal */
@@ -379,89 +433,4 @@ html, body {
 
 .swiper-container-modal .swiper-button-next {
   right: 10px;
-}
-
-/* Responsive adjustments */
-@media (max-width: 768px) {
-  .carousel .hero-swiper {
-    height: 30vh;
-    min-height: 150px;
-  }
-
-  .carousel .swiper-button-prev,
-  .carousel .swiper-button-next {
-    width: 30px;
-    height: 30px;
-  }
-
-  .carousel .swiper-button-prev:after,
-  .carousel .swiper-button-next:after {
-    font-size: 16px;
-  }
-
-  .carousel .swiper-button-prev {
-    left: 5px;
-  }
-
-  .carousel .swiper-button-next {
-    right: 5px;
-  }
-
-  .carousel .swiper-pagination {
-    bottom: 5px;
-  }
-
-  .carousel .swiper-slide .overlay-text {
-    font-size: 1.5rem;
-  }
-
-  .modal-content {
-    max-height: 85vh;
-    padding: 20px;
-  }
-
-  .modal-close {
-    top: 10px;
-    right: 10px;
-  }
-
-  .swiper-slide img {
-    max-height: 200px;
-  }
-
-  .modal-card {
-    max-width: 90%;
-  }
-
-  .modal-text {
-    font-size: 0.9rem;
-  }
-
-  .modal-text h2 {
-    font-size: 1.5rem;
-  }
-
-  .swiper-container-modal .swiper-pagination {
-    bottom: 15px;
-    margin-top: 15px;
-  }
-
-  .swiper-container-modal .swiper-button-prev,
-  .swiper-container-modal .swiper-button-next {
-    width: 40px;
-    height: 40px;
-  }
-
-  .swiper-container-modal .swiper-button-prev:after,
-  .swiper-container-modal .swiper-button-next:after {
-    font-size: 20px;
-  }
-
-  .swiper-container-modal .swiper-button-prev {
-    left: 5px;
-  }
-
-  .swiper-container-modal .swiper-button-next {
-    right: 5px;
-  }
 }
