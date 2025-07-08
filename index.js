@@ -179,7 +179,7 @@ document.addEventListener("DOMContentLoaded", () => {
   if (filteredObras.length === 0) {
     contenedor.innerHTML = `
       <div class="text-center p-4 text-gray-600">
-        Esta categoría se encuentra vacía por el momento.
+        Coming Soon...
       </div>
     `;
   } else {
