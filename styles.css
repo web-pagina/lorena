@@ -214,7 +214,7 @@ html, body {
 /* Carousel */
 .carousel .hero-swiper {
   max-width: 100%;
-  height: 40vh;
+  height: 30vh;
   min-height: 200px;
   position: relative;
   overflow: hidden;
@@ -222,7 +222,7 @@ html, body {
 
 .carousel .swiper-slide img {
   width: 100%;
-  height: 100%;
+  height: 100%; /* Aligns with h-[28vh] from HTML, ensuring fill */
   object-fit: cover;
   border-radius: 0;
   transition: opacity 0.5s ease;
@@ -260,7 +260,7 @@ html, body {
   opacity: 0.8;
   cursor: pointer;
   position: absolute;
-  top: 50%;
+  top: 70%;
   transform: translateY(-50%);
 }
 
@@ -285,8 +285,8 @@ html, body {
 }
 
 .carousel .swiper-pagination {
-  bottom: 15px; /* Increased to ensure visibility at 40vh */
-  z-index: 30; /* Increased to stay above image and overlay */
+  bottom: 15px;
+  z-index: 30;
 }
 
 .carousel .swiper-pagination-bullet {
