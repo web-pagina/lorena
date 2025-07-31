@@ -226,7 +226,6 @@ renderObras(obras);
         </div>
         <div class="modal-text mt-6 text-center">
           <h2 class="text-2xl font-serif text-green-800">${obra.title}</h2>
-          <p><strong>Año:</strong> ${obra.year}</p>
           <p><strong>Técnica:</strong> ${obra.technique}</p>
           <p><strong>Tamaño:</strong> ${obra.size || "No especificado"}</p>
           <p><strong>Precio:</strong> $${obra.price}</p>
