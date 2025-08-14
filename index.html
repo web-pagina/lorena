@@ -5,131 +5,123 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Explora las obras de arte únicas de Lorena Minoretti, artista especializada en pintura contemporánea y abstracción.">
     <meta name="keywords" content="arte, pintura, Lorena Minoretti, obras originales, arte contemporáneo">
-    <title>Lorena Minoretti Art</title>
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <title>Lorena Minoretti</title>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500&family=Playfair+Display:wght@300;400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
     <link rel="stylesheet" href="styles.css">
 </head>
-<body class="flex flex-col min-h-screen">
+<body>
     <!-- Header -->
-    <header class="header sticky top-0 z-50 shadow-md" style="background-color: #c4dafa;">
-        <div class="container mx-auto flex justify-between items-center p-4">
-            <a href="index.html" class="logo font-serif text-2xl font-semibold" style="color: #005187;">Lorena Minoretti Art</a>
-            
-            <!-- Desktop Navigation -->
-            <nav class="navbar hidden md:flex" id="navbar">
-                <ul class="flex gap-6">
-                    <li><a href="index.html" class="font-semibold hover:opacity-75" style="color: #005187;">Obras</a></li>
-                    <li><a href="quien_soy.html" class="font-semibold hover:opacity-75" style="color: #005187;">Quién Soy</a></li>
-                    <li><a href="contacto.html" class="font-semibold hover:opacity-75" style="color: #005187;">Contacto</a></li>
-                </ul>
-            </nav>
-
-            <!-- Mobile Menu Button -->
-            <button class="menu-toggle md:hidden text-2xl" style="color: #005187;" id="menu-toggle" aria-label="Abrir menú">☰</button>
+    <header class="header">
+        <div class="container">
+            <h1 class="artist-name">Lorena Minoretti</h1>
         </div>
     </header>
 
-    <!-- Main Content -->
-    <main class="flex-grow">
-        <!-- Hero Carousel -->
-        <section class="carousel py-4" style="background-color: #fcffff;">
-        <div>
-            <h1 class="font-serif text-3xl md:text-4xl mb-6 text-center" style="color: #005187;">Madre Naturaleza:</h1>
-            <h4 class="font-serif text-1xl md:text-2xl mb-6 text-center" style="color: #005187;">La inspiración sublime que llena mi arte de magia, luz y admiración</h4>
-            <div class="swiper hero-swiper w-full">
-            <div class="swiper-wrapper">
-                <div class="swiper-slide">
-                <img src="img/carrusel1.png" alt="Obra abstracta en tonos azules por Lorena Minoretti" class="w-full h-full object-cover rounded-lg min-h-[30vh] max-h-[40vh]" loading="lazy">
-                </div>
-                <div class="swiper-slide">
-                <img src="img/carrusel2.png" alt="Pintura contemporánea con colores vibrantes" class="w-full h-full object-cover rounded-lg min-h-[30vh] max-h-[40vh]" loading="lazy">
-                </div>
-                <div class="swiper-slide">
-                <img src="img/carrusel3.png" alt="Ilustración artística de Lorena Minoretti" class="w-full h-full object-cover rounded-lg min-h-[30vh] max-h-[40vh]" loading="lazy">
-                </div>
+    <!-- Main Navigation -->
+    <nav class="main-navigation">
+        <div class="container">
+            <div class="nav-links">
+                <a href="#obras">Obras</a>
+                <a href="#sobre-mi">Sobre Mí</a>
+                <a href="contacto.html">Contacto</a>
             </div>
-            <div class="swiper-button-prev"></div>
-            <div class="swiper-button-next"></div>
-            <div class="swiper-pagination"></div>
-            </div>
+            <!-- Mobile Menu Button -->
+            <button class="menu-toggle" id="menu-toggle" aria-label="Abrir menú">☰</button>
         </div>
+    </nav>
+
+    <!-- Mobile Navigation Menu -->
+    <div class="mobile-menu" id="navbar">
+        <a href="#obras">Obras</a>
+        <a href="#sobre-mi">Sobre Mí</a>
+        <a href="contacto.html">Contacto</a>
+    </div>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section with Swiper -->
+        <section class="hero-section">
+            <div class="container">
+                <h2 class="hero-title">Madre Naturaleza:</h2>
+                <h4 class="hero-subtitle">La inspiración sublime que llena mi arte de magia, luz y admiración</h4>
+                
+                <div class="swiper hero-swiper">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <img src="img/carrusel1.png" alt="Obra abstracta en tonos azules por Lorena Minoretti" loading="lazy">
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="img/carrusel2.png" alt="Pintura contemporánea con colores vibrantes" loading="lazy">
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="img/carrusel3.png" alt="Ilustración artística de Lorena Minoretti" loading="lazy">
+                        </div>
+                    </div>
+                    <div class="swiper-button-prev"></div>
+                    <div class="swiper-button-next"></div>
+                    <div class="swiper-pagination"></div>
+                </div>
+            </div>
         </section>
 
-        <section class="about-section py-12" style="background-color: #F5FAFF;">
-            <div class="container mx-auto px-4">
-                <h2 class="font-serif text-3xl md:text-4xl mb-6 text-center" style="color: #1E3A5F;">Sobre Lorena Minoretti</h2>
-                <div class="flex flex-col md:flex-row items-center gap-8">
-                    <div class="text-center md:text-left">
-                        <p class="text-lg mb-4" style="color: #444;">Lorena Minoretti es una artista ambientalista que encuentra en el océano su mayor inspiración. Discípula de Jorge Rajadell, sus obras buscan dar voz a las especies marinas y promover la conciencia sobre la importancia del medioambiente. Su muestra “Todos somos uno” (2019) refleja su visión de conexión entre todas las formas de vida.</p>
-                        <p class="text-lg mb-4" style="color: #444;">A través de sus pinceladas, Lorena invita a reflexionar sobre nuestra relación con la naturaleza, creando un puente entre especies para un mundo en armonía.</p>
-                        <div class="flex flex-col md:flex-row gap-4 justify-center mx-auto">
-                            <a href="quien_soy.html" class="inline-block px-6 py-3 rounded-lg font-semibold transition-colors" style="background-color: #4D82BC; color: white;" onmouseover="this.style.backgroundColor='#005187'" onmouseout="this.style.backgroundColor='#4D82BC'">Conocer más</a>
-                            <a href="https://carasycaretas.org.ar/2021/01/29/quiero-crear-una-conexion-entre-especies/" target="_blank" rel="noopener noreferrer" class="inline-block px-6 py-3 rounded-lg font-semibold transition-colors" style="background-color: #4D82BC; color: white;" onmouseover="this.style.backgroundColor='#005187'" onmouseout="this.style.backgroundColor='#4D82BC'">Leer entrevista</a>
-                        </div>
+        <!-- About Section -->
+        <section class="about-section" id="sobre-mi">
+            <div class="container">
+                <h2 class="section-title">Sobre Lorena Minoretti</h2>
+                <div class="about-content">
+                    <p>Lorena Minoretti es una artista ambientalista que encuentra en el océano su mayor inspiración. Discípula de Jorge Rajadell, sus obras buscan dar voz a las especies marinas y promover la conciencia sobre la importancia del medioambiente. Su muestra "Todos somos uno" (2019) refleja su visión de conexión entre todas las formas de vida.</p>
+                    <p>A través de sus pinceladas, Lorena invita a reflexionar sobre nuestra relación con la naturaleza, creando un puente entre especies para un mundo en armonía.</p>
+                    <div class="action-buttons">
+                        <a href="quien_soy.html" class="btn-primary">Conocer más</a>
+                        <a href="https://carasycaretas.org.ar/2021/01/29/quiero-crear-una-conexion-entre-especies/" target="_blank" rel="noopener noreferrer" class="btn-secondary">Leer entrevista</a>
                     </div>
                 </div>
             </div>
         </section>
 
-<!--          Proyectos destacados 
-        <section class="projects-section py-12" style="background-color: #F5FAFF;">
-            <div class="container mx-auto px-4">
-                <h2 class="font-serif text-3xl md:text-4xl mb-6 text-center" style="color: #1E3A5F;">Proyectos Destacados</h2>
-                <div class="flex flex-col md:flex-row items-center gap-8">
-                    <img src="img/obra3a.png" alt="TerrAq juego de mesa" class="w-48 h-48 md:w-64 md:h-64 object-cover rounded-lg border-4" style="border-color: #A3C7FF;">
-                    <div class="text-center md:text-left">
-                        <h3 class="text-2xl font-serif mb-4" style="color: #1E3A5F;">TerrAq®: Un juego para la conciencia</h3>
-                        <p class="text-lg mb-4" style="color: #444;">TerrAq® es un juego de mesa de estrategia sobre especies y medioambiente, diseñado para educar y emocionar. Con ilustraciones dibujadas a mano, este proyecto invita a reflexionar sobre nuestra relación con el planeta.</p>
-                        <div class="flex justify-center mx-auto">
-                            <a href="contacto.html" class="inline-block px-6 py-3 rounded-lg font-semibold transition-colors" style="background-color: #4D82BC; color: white;" onmouseover="this.style.backgroundColor='#005187'" onmouseout="this.style.backgroundColor='#4D82BC'">Saber más</a>
-                        </div>
-                    </div>
+        <!-- Works Section -->
+        <section class="works-section" id="obras">
+            <div class="container">
+                <h2 class="section-title">Obras</h2>
+                
+                <!-- Filters -->
+                <div class="filters">
+                    <button class="filter-btn active" data-filter="all">Todas</button>
+                    <button class="filter-btn" data-filter="Acrílico">Acrílicos</button>
+                    <button class="filter-btn" data-filter="Acuarelas">Acuarelas</button>
+                    <button class="filter-btn" data-filter="Baúles y arcones">Baúles y arcones</button>     
+                    <button class="filter-btn" data-filter="Juego de Mesa">Juegos</button>
+                    <button class="filter-btn" data-filter="Ilustraciones">Ilustraciones</button>
+                    <button class="filter-btn" data-filter="Libro">Libros</button>
+                    <button class="filter-btn" data-filter="Óleos">Óleos</button>
+                    <button class="filter-btn" data-filter="Postales">Postales</button>
+                    <button class="filter-btn" data-filter="Réplicas Intervenidas">Réplicas Intervenidas</button>
                 </div>
-            </div>
-        </section> -->
 
-        <!-- Obras Section -->
-        <section id="contenedor-obras" class="obras-grid py-12">
-            <div class="container mx-auto">
-                <div class="filters flex justify-center gap-4 mb-8">
-                    <button class="filter-btn px-4 py-2 rounded-lg transition-colors" style="background-color: #c4dafa; color: #005187;" data-filter="all" onmouseover="this.style.backgroundColor='#84b6f4'" onmouseout="this.style.backgroundColor='#c4dafa'">Todas</button>
-                    <button class="filter-btn px-4 py-2 rounded-lg transition-colors" style="background-color: #c4dafa; color: #005187;" data-filter="Acrílico" onmouseover="this.style.backgroundColor='#84b6f4'" onmouseout="this.style.backgroundColor='#c4dafa'">Acrílicos</button>
-                    <button class="filter-btn px-4 py-2 rounded-lg transition-colors" style="background-color: #c4dafa; color: #005187;" data-filter="Acuarelas" onmouseover="this.style.backgroundColor='#84b6f4'" onmouseout="this.style.backgroundColor='#c4dafa'">Acuarelas</button>
-                    <button class="filter-btn px-4 py-2 rounded-lg transition-colors" style="background-color: #c4dafa; color: #005187;" data-filter="Baúles y arcones" onmouseover="this.style.backgroundColor='#84b6f4'" onmouseout="this.style.backgroundColor='#c4dafa'">Baúles y arcones</button>     
-                    <button class="filter-btn px-4 py-2 rounded-lg transition-colors" style="background-color: #c4dafa; color: #005187;" data-filter="Juego de Mesa" onmouseover="this.style.backgroundColor='#84b6f4'" onmouseout="this.style.backgroundColor='#c4dafa'">Juegos</button>
-                    <button class="filter-btn px-4 py-2 rounded-lg transition-colors" style="background-color: #c4dafa; color: #005187;" data-filter="Ilustraciones" onmouseover="this.style.backgroundColor='#84b6f4'" onmouseout="this.style.backgroundColor='#c4dafa'">Ilustraciones</button>
-                    <button class="filter-btn px-4 py-2 rounded-lg transition-colors" style="background-color: #c4dafa; color: #005187;" data-filter="Libro" onmouseover="this.style.backgroundColor='#84b6f4'" onmouseout="this.style.backgroundColor='#c4dafa'">Libros</button>
-                    <button class="filter-btn px-4 py-2 rounded-lg transition-colors" style="background-color: #c4dafa; color: #005187;" data-filter="Óleos" onmouseover="this.style.backgroundColor='#84b6f4'" onmouseout="this.style.backgroundColor='#c4dafa'">Óleos</button>
-                    <button class="filter-btn px-4 py-2 rounded-lg transition-colors" style="background-color: #c4dafa; color: #005187;" data-filter="Postales" onmouseover="this.style.backgroundColor='#84b6f4'" onmouseout="this.style.backgroundColor='#c4dafa'">Postales</button>
-                    <button class="filter-btn px-4 py-2 rounded-lg transition-colors" style="background-color: #c4dafa; color: #005187;" data-filter="Réplicas Intervenidas" onmouseover="this.style.backgroundColor='#84b6f4'" onmouseout="this.style.backgroundColor='#c4dafa'">Réplicas Intervenidas</button>
-                </div>
-                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6" id="obras-container"></div>
+                <!-- Works Gallery -->
+                <div class="gallery" id="obras-container"></div>
             </div>
         </section>
     </main>
 
     <!-- Footer -->
-    <footer class="footer text-white text-center py-6" style="background-color: #005187;">
-        <div class="container mx-auto">
-            <p>© 2025 Lorena Minoretti Art</p>
-            <p class="mt-2">
-                <a href="https://www.instagram.com/lorena_minoretti_art" target="_blank" rel="noopener noreferrer" class="hover:underline transition-colors" style="color: #84b6f4;" onmouseover="this.style.color='#c4dafa'" onmouseout="this.style.color='#84b6f4'">Instagram</a> |
-                <a href="https://wa.me/5491167852021" target="_blank" rel="noopener noreferrer" class="hover:underline transition-colors" style="color: #84b6f4;" onmouseover="this.style.color='#c4dafa'" onmouseout="this.style.color='#84b6f4'">WhatsApp</a>
-            </p>
+    <footer class="footer">
+        <div class="container">
+            <p>© 2025 Lorena Minoretti</p>
+            <div class="footer-links">
+                <a href="https://www.instagram.com/lorena_minoretti_art" target="_blank" rel="noopener noreferrer">Instagram</a>
+                <a href="https://wa.me/5491167852021" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+            </div>
         </div>
     </footer>
 
     <!-- Modal -->
-    <div id="modal" class="modal hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-    <div class="modal-content bg-white rounded-lg p-6 max-w-2xl w-full mx-4 relative">
-        <button class="modal-close absolute top-2 right-2 text-2xl text-gray-600 transition-colors z-60" style="color: #666;" onmouseover="this.style.color='#4d82bc'" onmouseout="this.style.color='#666'" aria-label="Cerrar modal">×</button>
-        <div id="modal-body"></div>
-    </div>
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <button class="modal-close" aria-label="Cerrar modal">×</button>
+            <div id="modal-body"></div>
+        </div>
     </div>
 
     <!-- Scripts -->

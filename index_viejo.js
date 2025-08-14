@@ -1,42 +1,34 @@
 document.addEventListener("DOMContentLoaded", () => {
-  // Menú mobile
-  const menuToggle = document.getElementById("menu-toggle");
-  const navbar = document.getElementById("navbar"); // Changed to match HTML ID
-  
-  if (menuToggle && navbar) {
-    menuToggle.addEventListener("click", () => {
-      navbar.classList.toggle("open"); // Using "open" class from old JS
-      menuToggle.setAttribute("aria-expanded", navbar.classList.contains("open"));
-    });
-    
-    // Cerrar menú al hacer click en un enlace
-    navbar.addEventListener("click", (e) => {
-      if (e.target.tagName === "A") {
-        navbar.classList.remove("open");
-      }
-    });
-  }
+  // Menú hamburguesa
+  const toggle = document.getElementById("menu-toggle");
+  const nav = document.getElementById("navbar");
+  toggle.addEventListener("click", () => {
+    nav.classList.toggle("open");
+    toggle.setAttribute("aria-expanded", nav.classList.contains("open"));
+  });
 
   // Inicializar Swiper
   new Swiper(".hero-swiper", {
-    loop: true,
-    effect: "fade",
-    fadeEffect: { crossFade: true },
-    autoplay: {
-      delay: 5000,
-      disableOnInteraction: false,
-    },
-    navigation: {
-      nextEl: ".swiper-button-next",
-      prevEl: ".swiper-button-prev",
-    },
-    pagination: {
-      el: ".swiper-pagination",
-      clickable: true,
-    },
-    slidesPerView: 1,
-    spaceBetween: 0,
-  });
+  loop: true,
+  effect: "fade", // Smooth fade transition like Diderot.Art
+  fadeEffect: { crossFade: true },
+  autoplay: {
+    delay: 5000,
+    disableOnInteraction: false, // Continue autoplay after user interaction
+  },
+  navigation: {
+    nextEl: ".swiper-button-next",
+    prevEl: ".swiper-button-prev",
+  },
+  pagination: {
+    el: ".swiper-pagination",
+    clickable: true,
+  },
+  slidesPerView: 1, // Always show one slide
+  spaceBetween: 0, // No gap between slides
+});
+
+  
 
   // Datos de obras
   const obras = [
@@ -183,28 +175,26 @@ document.addEventListener("DOMContentLoaded", () => {
   const modalClose = document.querySelector(".modal-close");
 
   function renderObras(filteredObras) {
-    if (!contenedor) return;
-    
-    contenedor.innerHTML = "";
-    if (filteredObras.length === 0) {
-      contenedor.innerHTML = `
-        <div style="text-align: center; padding: 40px; color: #666; grid-column: 1 / -1;">
-          Próximamente...
-        </div>
-      `;
-    } else {
-      contenedor.innerHTML = filteredObras.map((obra, index) => `
-        <div class="obra-card" data-technique="${obra.technique}" data-index="${obras.indexOf(obra)}">
-          <img src="img/${obra.images[0]}" alt="${obra.title}" loading="lazy">
-          <h3>${obra.title}</h3>
-          <p>${obra.technique}</p>
-          <p class="price">${obra.price.toLocaleString()}</p>
-        </div>
-      `).join("");
-    }
+  contenedor.innerHTML = "";
+  if (filteredObras.length === 0) {
+    contenedor.innerHTML = `
+      <div class="text-center p-4 text-gray-600">
+        Coming Soon...
+      </div>
+    `;
+  } else {
+    contenedor.innerHTML = filteredObras.map((obra, index) => `
+      <div class="obra-card p-4" data-technique="${obra.technique}" data-index="${obras.indexOf(obra)}">
+        <img src="img/${obra.images[0]}" alt="${obra.title}" class="mb-4" loading="lazy">
+        <h3 class="text-lg font-semibold">${obra.title}</h3>
+        <p>${obra.technique}</p>
+        <p class="text-green-600 font-bold">$${obra.price}</p>
+      </div>
+    `).join("");
   }
+}
 
-  renderObras(obras);
+renderObras(obras);
 
   // Filtros
   document.querySelectorAll(".filter-btn").forEach((btn) => {
@@ -218,160 +208,54 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   // Modal para detalles
-const contenedor = document.getElementById("obras-container");
-const modal = document.getElementById("modal");
-const modalBody = document.getElementById("modal-body");
-const modalClose = modal ? modal.querySelector(".modal-close") : null;
-
-if (contenedor && modal && modalBody && modalClose) {
-  console.log("Elementos del modal encontrados:", { contenedor, modal, modalBody, modalClose });
   contenedor.addEventListener("click", (e) => {
     const card = e.target.closest(".obra-card");
-    if (!card) {
-      console.log("No se encontró una .obra-card");
-      return;
-    }
-    
+    if (!card) return;
     const index = card.getAttribute("data-index");
-    if (!index) {
-      console.log("No se encontró data-index en la card");
-      return;
-    }
     const obra = obras[index];
 
     modalBody.innerHTML = `
-      <div class="modal-card">
-        <div class="swiper-container-modal">
+      <div class="modal-card p-4 bg-gray-50 rounded-lg shadow-md">
+        <div class="swiper-container-modal w-full overflow-hidden">
           <div class="swiper-wrapper">
-            ${obra.images.map((img) => `
-              <div class="swiper-slide">
-                <img src="img/${img}" alt="${obra.title}">
-              </div>
-            `).join("")}
+            ${obra.images.map((img) => `<div class="swiper-slide"><img src="img/${img}" alt="${obra.title}" class="w-full h-64 object-contain rounded-lg"></div>`).join("")}
           </div>
-          <div class="swiper-pagination"></div>
+          <div class="swiper-pagination mt-4"></div>
           <div class="swiper-button-prev"></div>
           <div class="swiper-button-next"></div>
         </div>
-        <div class="modal-text">
-          <h2>${obra.title}</h2>
-          <p><strong>Año:</strong> ${obra.year}</p>
+        <div class="modal-text mt-6 text-center">
+          <h2 class="text-2xl font-serif text-green-800">${obra.title}</h2>
           <p><strong>Técnica:</strong> ${obra.technique}</p>
-          ${obra.size ? `<p><strong>Tamaño:</strong> ${obra.size}</p>` : ''}
-          <p><strong>Precio:</strong> ${obra.price.toLocaleString()}</p>
-          <p style="margin-top: 15px;">${obra.description}</p>
+          <p><strong>Tamaño:</strong> ${obra.size || "No especificado"}</p>
+          <p><strong>Precio:</strong> $${obra.price}</p>
+          <p>${obra.description}</p>
           <a href="https://wa.me/5491167852021?text=Hola%20Lorena,%20estoy%20interesado/a%20en%20la%20obra%20'${encodeURIComponent(obra.title)}'" 
             target="_blank" 
-            class="btn-whatsapp">
+            class="btn-whatsapp bg-green-500 text-white px-4 py-2 rounded-lg mt-4 inline-block">
             Consultar por WhatsApp
           </a>
         </div>
       </div>
     `;
-    
-    modal.classList.add("show");
-    console.log("Modal debería estar visible ahora");
-
-    // Inicializar Swiper del modal solo si hay imágenes
-    if (obra.images.length > 0) {
-      new Swiper(".swiper-container-modal", {
-        loop: obra.images.length >= 3, // Desactiva loop si menos de 3 slides
-        pagination: {
-          el: ".swiper-pagination",
-          clickable: true,
-        },
-        navigation: {
-          nextEl: ".swiper-button-next",
-          prevEl: ".swiper-button-prev",
-        },
-        slidesPerView: 1,
-        spaceBetween: 10,
-      });
-    }
+    modal.classList.remove("hidden");
+    new Swiper(".swiper-container-modal", {
+      loop: true,
+      pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+      },
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      },
+      slidesPerView: 1,
+      spaceBetween: 10,
+    });
   });
 
-  // Cerrar modal
-  modalClose.addEventListener("click", () => {
-    modal.classList.remove("show");
-  });
-
+  modalClose.addEventListener("click", () => modal.classList.add("hidden"));
   modal.addEventListener("click", (e) => {
-    if (e.target === modal) {
-      modal.classList.remove("show");
-    }
+    if (e.target === modal) modal.classList.add("hidden");
   });
-
-  // Cerrar modal con tecla Escape
-  document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape" && modal.classList.contains("show")) {
-      modal.classList.remove("show");
-    }
-  });
-} else {
-  console.error("Uno o más elementos del modal no se encontraron:", { contenedor, modal, modalBody, modalClose });
-}
-
-  // Navegación suave
-  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-      const href = this.getAttribute('href');
-      if (href.startsWith('#') && href.length > 1) {
-        e.preventDefault();
-        const target = document.querySelector(href);
-        if (target) {
-          target.scrollIntoView({
-            behavior: 'smooth',
-            block: 'start'
-          });
-        }
-      }
-    });
-  });
-
-  // Simulación básica de carrito
-  let cartCount = 0;
-  const cartLinks = document.querySelectorAll('a[href="#carrito"]');
-
-  function updateCartDisplay() {
-    cartLinks.forEach(link => {
-      link.textContent = `Carrito (${cartCount})`;
-    });
-  }
-
-  // Funcionalidad opcional de agregar al carrito (click en obra)
-  if (contenedor) {
-    contenedor.addEventListener("dblclick", (e) => {
-      const card = e.target.closest(".obra-card");
-      if (!card) return;
-      
-      const index = card.getAttribute("data-index");
-      const obra = obras[index];
-      
-      const confirmed = confirm(`¿Deseas agregar "${obra.title}" al carrito?`);
-      if (confirmed) {
-        cartCount++;
-        updateCartDisplay();
-        
-        // Mostrar notificación temporal
-        const notification = document.createElement('div');
-        notification.textContent = 'Obra agregada al carrito';
-        notification.style.cssText = `
-          position: fixed;
-          top: 20px;
-          right: 20px;
-          background: #25d366;
-          color: white;
-          padding: 15px 20px;
-          border-radius: 4px;
-          z-index: 1001;
-          font-weight: 500;
-        `;
-        document.body.appendChild(notification);
-        
-        setTimeout(() => {
-          notification.remove();
-        }, 3000);
-      }
-    });
-  }
 });

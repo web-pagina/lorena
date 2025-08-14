@@ -1,56 +1,90 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Conoce a Lorena Minoretti, artista plástica especializada en pintura contemporánea y abstracción.">
-  <meta name="keywords" content="Lorena Minoretti, artista, pintura contemporánea, arte">
-  <title>Quién Soy - Lorena Minoretti Art</title>
-  <link rel="stylesheet" href="styles.css">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Explora las obras de arte únicas de Lorena Minoretti, artista especializada en pintura contemporánea y abstracción.">
+    <meta name="keywords" content="arte, pintura, Lorena Minoretti, obras originales, arte contemporáneo">
+    <title>Lorena Minoretti</title>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500&family=Playfair+Display:wght@300;400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+    <link rel="stylesheet" href="styles.css">
 </head>
-<body class="flex flex-col min-h-screen">
-  <header class="header sticky top-0 z-50 shadow-md" style="background-color: #c4dafa;">
-    <div class="container mx-auto flex justify-between items-center p-4">
-      <a href="index.html" class="logo font-serif text-2xl font-semibold" style="color: #005187;">Lorena Minoretti Art</a>
-      <nav class="navbar hidden md:flex" id="navbar">
-        <ul class="flex gap-6">
-          <li><a href="index.html" class="font-semibold hover:opacity-75" style="color: #005187;">Obras</a></li>
-          <li><a href="quien_soy.html" class="font-semibold hover:opacity-75" style="color: #005187;">Quién Soy</a></li>
-          <li><a href="contacto.html" class="font-semibold hover:opacity-75" style="color: #005187;">Contacto</a></li>
-        </ul>
-      </nav>
-      <button class="menu-toggle md:hidden text-2xl" style="color: #005187;" id="menu-toggle" aria-label="Abrir menú">☰</button>
-    </div>
-  </header>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <h1 class="artist-name">Lorena Minoretti</h1>
+        </div>
+    </header>
 
-  <main class="about-section">
-    <h2 class="font-serif text-3xl" style="color: #4d82bc;">Sobre Lorena Minoretti</h2>
-    <p>
-      Podría comenzar escribiendo sobre listados de estudios, experiencias y logros, pero esto no suele crear mucha conexión entre las personas. Prefiero compartir aquí, alguno de mis pensamientos sobre mi arte e inspiración: la Madre Naturaleza.
-      Cuando la mirada errante de un artista se posa sobre lo que se busca representar, se comienza a generar un vínculo íntimo con lo observado y luego representado. Hay una fusión con la imagen que despierta un minucioso interés por por aquello que inspira la obra artística.
-      Sucede entonces, que dibujos y acuarelas que parecían obras aisladas destinadas al olvido, toman cuerpo e impulso para generar esa empatía que precede a la inquietud del querer comprender más y más.
-      Los caminos van y vienen, y así, con la misma intensidad con la que el arte me llevó al mundo natural, el mundo natural vuelve a mi a través del arte.
-    </p>
-    <p>
-      Quien soy?
-      Soy una artista maravillada por la gran Obra Maestra del Universo que nos da Vida.
-    </p>
-    <img src="img/carrusel1.png" alt="Fotografía de Lorena Minoretti en su estudio" class="mx-auto" loading="lazy">
-  </main>
+    <!-- Main Navigation -->
+    <nav class="main-navigation">
+        <div class="container">
+            <div class="nav-links">
+                <a href="index.html">Obras</a>
+                <a href="#sobre-mi">Sobre Mí</a>
+                <a href="contacto.html">Contacto</a>
+            </div>
+            <!-- Mobile Menu Button -->
+            <button class="menu-toggle" id="menu-toggle" aria-label="Abrir menú">☰</button>
+        </div>
+    </nav>
 
-  <footer class="footer text-white text-center py-6" style="background-color: #005187;">
-    <div class="container mx-auto">
-      <p>© 2025 Lorena Minoretti Art</p>
-      <p class="mt-2">
-        <a href="https://www.instagram.com/lorena_minoretti_art" target="_blank" rel="noopener noreferrer" class="hover:underline" style="color: #84b6f4;" onmouseover="this.style.color='#c4dafa'" onmouseout="this.style.color='#84b6f4'">Instagram</a> |
-        <a href="https://wa.me/5491167852021" target="_blank" rel="noopener noreferrer" class="hover:underline" style="color: #84b6f4;" onmouseover="this.style.color='#c4dafa'" onmouseout="this.style.color='#84b6f4'">WhatsApp</a>
-      </p>
+    <!-- Mobile Navigation Menu -->
+    <div class="mobile-menu" id="navbar">
+        <a href="#obras">Obras</a>
+        <a href="#sobre-mi">Sobre Mí</a>
+        <a href="contacto.html">Contacto</a>
     </div>
-  </footer>
+
+
+
+        <section class="about-section" id="sobre-mi">
+            <div class="container">
+                <h2 class="section-title">Sobre Lorena Minoretti</h2>
+                <div class="about-content">
+                  <p>
+                    Podría comenzar escribiendo sobre listados de estudios, experiencias y logros, pero esto no suele crear mucha conexión entre las personas. Prefiero compartir aquí, alguno de mis pensamientos sobre mi arte e inspiración: la Madre Naturaleza.
+                    Cuando la mirada errante de un artista se posa sobre lo que se busca representar, se comienza a generar un vínculo íntimo con lo observado y luego representado. Hay una fusión con la imagen que despierta un minucioso interés por por aquello que inspira la obra artística.
+                    Sucede entonces, que dibujos y acuarelas que parecían obras aisladas destinadas al olvido, toman cuerpo e impulso para generar esa empatía que precede a la inquietud del querer comprender más y más.
+                    Los caminos van y vienen, y así, con la misma intensidad con la que el arte me llevó al mundo natural, el mundo natural vuelve a mi a través del arte.
+                  </p>           
+                  <p>
+                    Quien soy?
+                    Soy una artista maravillada por la gran Obra Maestra del Universo que nos da Vida.
+                  </p>         
+                <div class="action-buttons">
+                        <!-- <img src="img/carrusel1.png" alt="Fotografía de Lorena Minoretti en su estudio" class="mx-auto" loading="lazy"> -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>© 2025 Lorena Minoretti</p>
+            <div class="footer-links">
+                <a href="https://www.instagram.com/lorena_minoretti_art" target="_blank" rel="noopener noreferrer">Instagram</a>
+                <a href="https://wa.me/5491167852021" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modal -->
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <button class="modal-close" aria-label="Cerrar modal">×</button>
+            <div id="modal-body"></div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script src="index.js"></script>
+</body>
+</html>
 
   <script>
     document.addEventListener("DOMContentLoaded", () => {
