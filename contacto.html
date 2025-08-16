@@ -3,14 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Explora las obras de arte únicas de Lorena Minoretti, artista especializada en pintura contemporánea y abstracción.">
-    <meta name="keywords" content="arte, pintura, Lorena Minoretti, obras originales, arte contemporáneo">
-    <title>Lorena Minoretti</title>
+    <meta name="description" content="Contacta a Lorena Minoretti - Artista especializada en pintura contemporánea y arte ambiental.">
+    <meta name="keywords" content="contacto, Lorena Minoretti, artista, pintura, arte contemporáneo">
+    <title>Contacto - Lorena Minoretti</title>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500&family=Playfair+Display:wght@300;400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="styles_contacto.css">
-
 </head>
 <body>
     <!-- Header -->
@@ -25,7 +24,7 @@
         <div class="container">
             <div class="nav-links">
                 <a href="index.html">Obras</a>
-                <a href="#sobre-mi">Sobre Mí</a>
+                <a href="quien_soy.html">Sobre Mí</a>
                 <a href="contacto.html">Contacto</a>
             </div>
             <!-- Mobile Menu Button -->
@@ -35,29 +34,62 @@
 
     <!-- Mobile Navigation Menu -->
     <div class="mobile-menu" id="navbar">
-        <a href="#obras">Obras</a>
-        <a href="#sobre-mi">Sobre Mí</a>
+        <a href="index.html">Obras</a>
+        <a href="quien_soy.html">Sobre Mí</a>
         <a href="contacto.html">Contacto</a>
     </div>
 
-<main class="flex-grow py-12">
-  <div class="container mx-auto px-4 text-center">
-    <h2 class="font-serif text-3xl mb-6" style="color: #4d82bc;">Contacto</h2>
-    <p class="mb-8 text-lg">Podés contactarme a través de los siguientes medios. ¡Estoy encantada de responderte!</p>
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 justify-center">
-      <div class="obra-card p-6 bg-white rounded-lg shadow-md">
-        <img src="img/instagram-icon.png" alt="Ícono de Instagram" class="mx-auto h-20 mb-4 object-contain" loading="lazy">
-        <h3 class="font-serif text-xl mb-2" style="color: #4d82bc;">Instagram</h3>
-        <a href="https://instagram.com/lorena_minoretti_art" target="_blank" class="font-semibold hover:underline" style="color: #84b6f4;">@lorena_minoretti_art</a>
-      </div>
-      <div class="obra-card p-6 bg-white rounded-lg shadow-md">
-        <img src="img/whatsapp-icon.png" alt="Ícono de WhatsApp" class="mx-auto h-20 mb-4 object-contain" loading="lazy">
-        <h3 class="font-serif text-xl mb-2" style="color: #4d82bc;">WhatsApp</h3>
-        <a href="https://wa.me/5491167852021" target="_blank" class="font-semibold hover:underline" style="color: #84b6f4;">Enviar mensaje</a>
-      </div>
-    </div>
-  </div>
-</main>
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section -->
+        <section class="contact-hero">
+            <div class="container">
+                <h1 class="contact-title">Conectemos</h1>
+                <p class="contact-subtitle">Me encantaría conocer tu interés por el arte y la naturaleza. No dudes en contactarme para cualquier consulta sobre mis obras o para compartir ideas sobre arte y conservación.</p>
+            </div>
+        </section>
+
+        <!-- Contact Cards Section -->
+        <section class="contact-section">
+            <div class="container">
+                <div class="contact-cards">
+                    <!-- Instagram Card -->
+                    <div class="contact-card instagram-card">
+                        <div class="contact-icon instagram-icon">
+                            📷
+                        </div>
+                        <h3>Instagram</h3>
+                        <p>Seguí mi proceso creativo y descubrí nuevas obras en mi perfil de Instagram</p>
+                        <a href="https://instagram.com/lorena_minoretti_art" target="_blank" rel="noopener noreferrer" class="contact-link">
+                            @lorena_minoretti_art
+                        </a>
+                    </div>
+
+                    <!-- WhatsApp Card -->
+                    <div class="contact-card whatsapp-card">
+                        <div class="contact-icon whatsapp-icon">
+                            💬
+                        </div>
+                        <h3>WhatsApp</h3>
+                        <p>¿Te interesa alguna obra? Escribime directamente por WhatsApp y conversemos</p>
+                        <a href="https://wa.me/5491167852021" target="_blank" rel="noopener noreferrer" class="contact-link">
+                            Enviar mensaje
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Quote Section -->
+        <section class="contact-quote">
+            <div class="container">
+                <blockquote class="quote-text">
+                    "A través del arte, podemos crear puentes entre especies y sembrar conciencia sobre la importancia de cuidar nuestro planeta"
+                </blockquote>
+                <p class="quote-author">— Lorena Minoretti</p>
+            </div>
+        </section>
+    </main>
 
     <!-- Footer -->
     <footer class="footer">
@@ -70,29 +102,20 @@
         </div>
     </footer>
 
-    <!-- Modal -->
-    <div id="modal" class="modal">
-        <div class="modal-content">
-            <button class="modal-close" aria-label="Cerrar modal">×</button>
-            <div id="modal-body"></div>
-        </div>
-    </div>
-
     <!-- Scripts -->
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <script src="index.js"></script>
-</body>
-</html>
-
-  <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      const toggle = document.getElementById("menu-toggle");
-      const nav = document.getElementById("navbar");
-      toggle.addEventListener("click", () => {
-        nav.classList.toggle("open");
-        toggle.setAttribute("aria-expanded", nav.classList.contains("open"));
-      });
-    });
-  </script>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const toggle = document.getElementById("menu-toggle");
+            const nav = document.getElementById("navbar");
+            if (toggle && nav) {
+                toggle.addEventListener("click", () => {
+                    nav.classList.toggle("open");
+                    toggle.setAttribute("aria-expanded", nav.classList.contains("open"));
+                });
+            }
+        });
+    </script>
 </body>
 </html>
