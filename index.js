@@ -46,7 +46,7 @@ document.addEventListener("DOMContentLoaded", () => {
       technique: "Libro",
       price: 50000,
       description: "Libro de búhos, lechuzas, flores y plumas. Hecho con acuarela y tinta. Sus páginas son una travesía interna que solo cada uno de nosotros podrá expresar.",
-      images: ["obra1a.png", "obra1b.png", "obra1c.png", "obra1d.png", "obra1e.png"], // Múltiples imágenes
+      images: [ "obra1f.png", "obra1a.png", "obra1b.png", "obra1c.png", "obra1d.png", "obra1e.png"], // Múltiples imágenes
     },
     {
       title: "Miradas desde la oscuridad",
@@ -265,12 +265,23 @@ document.addEventListener("DOMContentLoaded", () => {
       btn.classList.add("active");
       
       const filter = btn.dataset.filter;
-      const filteredObras = filter === "all" ? obras : obras.filter((obra) => obra.technique === filter);
+      let filteredObras;
+      
+      if (filter === "all") {
+        filteredObras = obras;
+      } else {
+        // Dividir el filtro por comas para manejar múltiples categorías
+        const categories = filter.split(',');
+        filteredObras = obras.filter((obra) => 
+          categories.includes(obra.technique)
+        );
+      }
       
       console.log("Obras filtradas:", filteredObras);
       renderObras(filteredObras);
     });
   });
+
 
   // Modal con carrusel de imágenes
   const contenedor = document.getElementById("obras-container");
