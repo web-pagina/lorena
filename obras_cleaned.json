@@ -10,9 +10,9 @@
     "images": []
   },
   {
-    "title": NaN,
+    "title": null,
     "category": "Todas",
-    "tipo_original": NaN,
+    "tipo_original": null,
     "tecnica": null,
     "size": "Total: 300 cm ancho x 150 cm alto",
     "price": null,
@@ -50,9 +50,9 @@
     "images": []
   },
   {
-    "title": NaN,
+    "title":  null,
     "category": "Todas",
-    "tipo_original": NaN,
+    "tipo_original": null,
     "tecnica": null,
     "size": "Marco medida: 136 cm x 156 cm",
     "price": null,
@@ -70,9 +70,9 @@
     "images": []
   },
   {
-    "title": NaN,
+    "title": null,
     "category": "Todas",
-    "tipo_original": NaN,
+    "tipo_original": null,
     "tecnica": null,
     "size": "Medidas con marco: 136 cm x 152 cm",
     "price": null,
@@ -100,9 +100,9 @@
     "images": []
   },
   {
-    "title": NaN,
+    "title": null,
     "category": "Todas",
-    "tipo_original": NaN,
+    "tipo_original": null,
     "tecnica": null,
     "size": "Medida total: 120 cm x 100 cm",
     "price": null,
@@ -230,9 +230,9 @@
     "images": []
   },
   {
-    "title": NaN,
+    "title": null,
     "category": "Todas",
-    "tipo_original": NaN,
+    "tipo_original": null,
     "tecnica": null,
     "size": null,
     "price": null,
@@ -240,9 +240,9 @@
     "images": []
   },
   {
-    "title": NaN,
+    "title": null,
     "category": "Todas",
-    "tipo_original": NaN,
+    "tipo_original": null,
     "tecnica": null,
     "size": null,
     "price": null,
@@ -252,7 +252,7 @@
   {
     "title": "link a la imagen referida en instagram ",
     "category": "Todas",
-    "tipo_original": NaN,
+    "tipo_original": null,
     "tecnica": null,
     "size": null,
     "price": null,
@@ -272,7 +272,7 @@
   {
     "title": "Link a instructivo en youtube",
     "category": "Todas",
-    "tipo_original": NaN,
+    "tipo_original": null,
     "tecnica": null,
     "size": null,
     "price": null,
@@ -282,7 +282,7 @@
   {
     "title": "Link al instagram de TerrAq",
     "category": "Todas",
-    "tipo_original": NaN,
+    "tipo_original": null,
     "tecnica": null,
     "size": null,
     "price": null,
