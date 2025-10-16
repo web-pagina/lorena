@@ -32,7 +32,7 @@ document.addEventListener("DOMContentLoaded", () => {
   /* ----------------- Cargar datos desde JSON ----------------- */
   async function loadObras() {
     try {
-      const resp = await fetch("../obras_cleaned.json", { cache: "no-store" });
+      const resp = await fetch("./obras_cleaned.json", { cache: "no-store" });
       if (!resp.ok) throw new Error("No se pudo cargar obras_cleaned.json: " + resp.status);
       const data = await resp.json();
       // Normalizar estructuras mínimas
