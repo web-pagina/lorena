@@ -856,3 +856,24 @@ body {
   font-weight: 600 !important;
   font-size: 1.1em !important;
 }
+
+/* Caption dentro de cada slide */
+.slide-caption {
+  position: absolute;
+  bottom: 12px;
+  left: 12px;
+  background: rgba(0,0,0,0.55);
+  color: #fff;
+  padding: 6px 10px;
+  border-radius: 6px;
+  font-size: 0.9em;
+  max-width: calc(100% - 24px);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+/* Lista de panels (estética) */
+.panels-list { padding-left: 18px; margin: 6px 0; color: #444; }
+.panels-list li { margin-bottom: 6px; font-size: 0.95em; }
+/* Fin estilos múltiples imágenes */

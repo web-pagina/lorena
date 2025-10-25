@@ -3,11 +3,16 @@
     "title": "Vuelos de Cielo y Mar",
     "category": "Obra pictórica",
     "tipo_original": "Obra pictórica",
-    "tecnica": "acrílico sobre tela. Montado en bastidor sin marco.",
-    "size": "100 cm ancho x 150 cm alto cada bastidor.",
+    "tecnica": "Acrílico sobre tela. Montado en bastidor sin marco.",
+    "size_total": "300 cm x 150 cm",
+    "panels": [
+      { "label": "Bastidor A", "size": "100 cm x 150 cm" },
+      { "label": "Bastidor B", "size": "100 cm x 150 cm" },
+      { "label": "Bastidor C", "size": "100 cm x 150 cm" }
+    ],
     "price": "consultar precio",
-    "description": "Seis de las siete especies de tortugas marinas que existen están amenazadas, tres de ellas en forma crítica. Cómo protegerse con sólo un abrazo de aletas?",
-    "images": []
+    "description": "Seis de las siete especies...",
+    "images": ["vuelos1.png","vuelos2.png","vuelos3.png"]
   },
   {
     "title": null,
@@ -27,7 +32,7 @@
     "size": "120 cm x 90 cm",
     "price": "consultar precio",
     "description": null,
-    "images": []
+    "images": ["obra1a.png","obra1b.png","obra1c.png"]
   },
   {
     "title": "Miradas desde la oscuridad",
@@ -57,7 +62,7 @@
     "size": "Marco medida: 136 cm x 156 cm",
     "price": null,
     "description": null,
-    "images": []
+    "images": ["obra1a.png","obra1b.png","obra1c.png"]
   },
   {
     "title": "Guardianes en el océano",
@@ -67,7 +72,7 @@
     "size": "Medidas: 100cm x 120 cm",
     "price": "consultar precio",
     "description": null,
-    "images": []
+    "images": ["obra1a.png","obra1b.png","obra1c.png"]
   },
   {
     "title": null,
@@ -77,7 +82,7 @@
     "size": "Medidas con marco: 136 cm x 152 cm",
     "price": null,
     "description": null,
-    "images": []
+    "images": ["obra1a.png","obra1b.png","obra1c.png"]
   },
   {
     "title": "Abrazo desde Aletas",
@@ -87,7 +92,7 @@
     "size": "Medidas: 80 cm x 90 cm",
     "price": "consultar precio",
     "description": null,
-    "images": []
+    "images": ["obra1a.png","obra1b.png","obra1c.png"]
   },
   {
     "title": "Familia de Emperadores",
@@ -97,7 +102,7 @@
     "size": "Medidas: 50 cm x 120 cm cada bastidor. ",
     "price": "consultar precio",
     "description": "Díptico de dos Pingüinos Emperador",
-    "images": []
+    "images": ["obra1a.png","obra1b.png","obra1c.png"]
   },
   {
     "title": null,
@@ -107,7 +112,7 @@
     "size": "Medida total: 120 cm x 100 cm",
     "price": null,
     "description": null,
-    "images": []
+    "images": ["obra1a.png","obra1b.png","obra1c.png"]
   },
   {
     "title": "Two Barn Owls",
@@ -127,7 +132,7 @@
     "size": "Medidas: 61 cm x 45 cm de alto",
     "price": "USD 170",
     "description": null,
-    "images": []
+    "images": ["obra1a.png","obra1b.png","obra1c.png"]
   },
   {
     "title": "Mono de la Montaña",
@@ -147,7 +152,7 @@
     "size": "24 cm x 32 cm",
     "price": "50 usd",
     "description": null,
-    "images": []
+    "images": ["obra1a.png","obra1b.png","obra1c.png"]
   },
   {
     "title": "Manzanas",
@@ -157,7 +162,7 @@
     "size": "24 cm x 32 cm",
     "price": "60 usd",
     "description": null,
-    "images": []
+    "images": ["obra1a.png","obra1b.png","obra1c.png"]
   },
   {
     "title": "Amistad",
@@ -177,7 +182,7 @@
     "size": "24 cm x 32 cm",
     "price": "55 usd",
     "description": null,
-    "images": []
+    "images": ["obra1a.png","obra1b.png","obra1c.png"]
   },
   {
     "title": "Bote Aguamarina",
