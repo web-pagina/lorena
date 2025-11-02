@@ -1,5 +1,7 @@
-// docs/index.js (reemplazar por completo)
 document.addEventListener("DOMContentLoaded", () => {
+  /* ---------- Detección de base (raíz vs /docs) ---------- */
+  let BASE = "";                    // se setea en loadObras() tras detectar desde dónde carga
+  const BASE_CANDIDATES = ["", "docs/"]; // probamos primero raíz y luego /docs/
 
   /* ----------------- Menú mobile ----------------- */
   const menuToggle = document.getElementById("menu-toggle");
@@ -27,130 +29,116 @@ document.addEventListener("DOMContentLoaded", () => {
       spaceBetween: 0,
     });
   } catch (err) {
-    console.warn("Swiper hero init error:", err);
+    console.warn("⚠️ Swiper hero no disponible:", err);
   }
 
   /* ----------------- Utilidades ----------------- */
+  const PLACEHOLDER_SM = "https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?w=400";
+  const PLACEHOLDER_LG = "https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?w=800";
+
   function escapeHtml(str) {
     if (str === null || str === undefined) return "";
-    return String(str).replace(/[&<>"']/g, (m) => ({ '&':'&amp;', '<':'&lt;', '>':'&gt;', '"':'&quot;', "'":'&#39;' }[m]));
+    return String(str).replace(/[&<>"']/g, (m) => ({
+      "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;"
+    }[m]));
   }
 
   function formatPrice(p) {
     if (p === null || p === undefined || p === "") return "Consultar precio";
-    if (typeof p === "number") return `$${p.toLocaleString()}`;
-    const num = Number(String(p).replace(/[^\d.-]/g, ""));
-    if (!Number.isNaN(num) && String(p).match(/\d/)) return `$${num.toLocaleString()}`;
-    return String(p);
+    if (typeof p === "number") return `$${p.toLocaleString("es-AR")}`;
+    const str = String(p).trim();
+    if (str.toLowerCase().includes("consultar")) return "Consultar precio";
+    if (/(usd|dólar|dolar)/i.test(str)) {
+      const num = Number(str.replace(/[^\d.-]/g, ""));
+      return isNaN(num) ? str : `USD ${num}`;
+    }
+    const num = Number(str.replace(/[^\d.-]/g, ""));
+    return !isNaN(num) && /\d/.test(str) ? `$${num.toLocaleString("es-AR")}` : str;
   }
 
   function normalize(str) {
     if (!str && str !== 0) return "";
-    return String(str)
-      .normalize("NFD").replace(/[\u0300-\u036f]/g, "") // quitar tildes
-      .toLowerCase()
-      .replace(/\s+/g, " ")
-      .trim();
+    return String(str).normalize("NFD").replace(/[\u0300-\u036f]/g, "")
+      .toLowerCase().replace(/\s+/g, " ").trim();
   }
 
-  function includesAnyCI(source, keywords = []) {
-    if (!source) return false;
-    const s = normalize(source);
-    return keywords.some(k => s.includes(normalize(k)));
+  /* ---------- Resolver ruta/https de imagen ---------- */
+  function resolveImagePath(imageName) {
+    if (!imageName) return PLACEHOLDER_SM;
+    let trimmed = String(imageName).trim();
+
+    // Forzar https si viene con http (evita contenido mixto en GitHub Pages)
+    if (/^http:\/\//i.test(trimmed)) trimmed = trimmed.replace(/^http:\/\//i, "https://");
+
+    // URL absoluta o ruta absoluta del servidor
+    if (/^https?:\/\//i.test(trimmed) || /^\//.test(trimmed)) return trimmed;
+
+    // Ruta relativa -> usar BASE detectada + img/
+    return `${BASE}img/${trimmed}`;
   }
 
-  /* ----------------- Cargar y normalizar JSON ----------------- */
-  /* ----------------- Cargar y normalizar JSON (versión robusta) ----------------- */
+  /* ----------------- Cargar JSON (sin caché + auto base) ----------------- */
   async function loadObras() {
-    try {
-      // nombres posibles (el repo mostró "obras_cleaned.json")
-      const nameCandidates = ['obras_cleaned.json', 'obras_clean.json', 'obras.json'];
+    const jsonFiles = ["obras_cleaned.json", "obras_clean.json", "obras.json"];
+    const bust = `?v=${Date.now()}`; // cache-buster
+    let data = null;
 
-      // bases posibles; usar new URL con location.href asegura que resolvemos correctamente
-      const baseCandidates = [
-        './',                           // relativo (mejor cuando index y json están juntos)
-        window.REPO_BASE || './',       // si has expuesto REPO_BASE desde index.html (opcional)
-        location.pathname.replace(/\/(?:index\.html)?$/, '/') // /carpeta/ si aplica
-      ].filter((v,i,a) => a.indexOf(v) === i); // quitar duplicados
+    console.log("🔍 Buscando archivo de obras…");
 
-      let data = null;
-      let lastAttempt = null;
-
-      // helper para intentar fetch y devolver json
-      async function tryFetchCandidate(base, name) {
-        // construye URL absoluta correctamente respecto a la página actual
-        const url = new URL(name, new URL(base, location.href)).href;
-        console.info('Intentando cargar obras desde:', url);
-        const resp = await fetch(url, { cache: 'no-store' });
-        if (!resp.ok) throw new Error(`HTTP ${resp.status} ${resp.statusText} (${url})`);
-        return await resp.json();
-      }
-
-      for (const base of baseCandidates) {
-        for (const name of nameCandidates) {
-          try {
-            data = await tryFetchCandidate(base, name);
-            window.OBRAS_SOURCE = new URL(name, new URL(base, location.href)).href;
+    // probamos combinaciones de BASE y filename hasta encontrar uno válido
+    for (const base of BASE_CANDIDATES) {
+      for (const filename of jsonFiles) {
+        const url = `${base}${filename}${bust}`;
+        try {
+          const res = await fetch(url, { cache: "no-store" });
+          if (res.ok) {
+            data = await res.json();
+            BASE = base; // fijamos la base detectada para imágenes locales
+            console.log(`✅ Datos cargados desde: ${url} (BASE="${BASE}")`);
             break;
-          } catch (err) {
-            lastAttempt = { base, name, err: String(err) };
-            console.warn('No se pudo cargar:', name, 'desde base', base, err);
           }
+        } catch (e) {
+          // ignoramos y seguimos probando
         }
-        if (data) break;
       }
+      if (data) break;
+    }
 
-      if (!data) {
-        console.error('No se pudo cargar ningún JSON de obras. Último intento:', lastAttempt);
-        return []; // devolvemos array vacío para que el resto del app no explote
-      }
-
-      // Normalizar registros (usa tu lógica original)
-      return data.map((r, idx) => {
-        const original = r._original_row || r || {};
-        let images = [];
-        if (Array.isArray(r.images)) images = r.images;
-        else if (r.images && typeof r.images === "string") images = r.images.split(",").map(s => s.trim());
-        else if (original && original['Foto (hay o no)']) images = String(original['Foto (hay o no)']).split(",").map(s => s.trim());
-
-        const title = r.title || original['Titulo'] || original['Título'] || "Sin título";
-        const tecnica = r.tecnica || r.technique || original['Técnica'] || original['Tecnica'] || null;
-        const tipo_original = r.tipo_original || original['Tipo'] || original['Tipo obra'] || null;
-        const size = r.size || original['Tamaño'] || original['Tamaño (cm)'] || null;
-        const price = r.price || original['Precio'] || original['Valor'] || null;
-        const description = r.description || original['Descripción'] || original['Mini descripción'] || null;
-
-        // detectar categoría por heurísticas si no viene
-        let category = r.category || original['Category'] || original['Categoría'] || null;
-        if (!category) {
-          const joined = [title, tecnica, tipo_original, description, original['Tipo'], original['Categoria'], original['Categoría']].filter(Boolean).join(" ");
-          if (includesAnyCI(joined, ["acuarela","acuarelas","ilustración","ilustraciones","ilustracion"])) category = "Acuarelas e Ilustraciones";
-          else if (includesAnyCI(joined, ["libro","libros","postal","postales"])) category = "Libros & Postales";
-          else if (includesAnyCI(joined, ["baúl","baul","arcon","baules","baúles","deco","decor"])) category = "Baúles & Deco";
-          else if (includesAnyCI(joined, ["juego","juegos","terraq","terraq","terraqecojuego"])) category = "TerrAqEcoJuego";
-          else if (includesAnyCI(joined, ["print","réplica","replica","réplicas","replicas"])) category = "Prints";
-          else category = "Obra pictórica";
-        }
-
-        images = images.map(i => typeof i === "string" ? i.trim() : i).filter(Boolean);
-
-        return {
-          _idx: idx,
-          title,
-          tecnica,
-          tipo_original,
-          size,
-          price,
-          description,
-          images,
-          category,
-          raw: original
-        };
-      });
-    } catch (err) {
-      console.error("Error loadObras (fatal):", err);
+    if (!data || !Array.isArray(data)) {
+      console.error("❌ No se pudo cargar ningún archivo JSON válido");
       return [];
     }
+
+    // Filtrar entradas inválidas
+    const validObras = data.filter((r) => {
+      const title = r.title;
+      if (!title) return false;
+      const t = String(title).toLowerCase();
+      return !['link','agregar','instagram','youtube','instructivo','http'].some(k => t.includes(k));
+    });
+
+    console.log(`📊 Obras válidas: ${validObras.length}`);
+
+    // Normalización
+    return validObras.map((obra, idx) => {
+      const images = Array.isArray(obra.images)
+        ? obra.images.filter(Boolean)
+        : (obra.images ? String(obra.images).split(",").map(s => s.trim()).filter(Boolean) : []);
+      return {
+        _idx: idx,
+        title: obra.title || "Sin título",
+        tecnica: obra.tecnica || obra.technique || null,
+        tipo_original: obra.tipo_original || null,
+        size: obra.size || null,
+        size_total: obra.size_total || null,
+        panels: obra.panels || null,
+        price: obra.price || null,
+        description: obra.description || null,
+        images,
+        category: obra.category || "Obra pictórica",
+        raw: obra.raw || obra._original_row || {}
+      };
+    });
   }
 
   /* ----------------- Render galería ----------------- */
@@ -158,36 +146,26 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function renderObras(obrasArray) {
     const cont = document.getElementById("obras-container");
-    if (!cont) return console.error("Contenedor #obras-container no encontrado");
+    if (!cont) { console.error("❌ Falta #obras-container"); return; }
     cont.innerHTML = "";
 
     if (!obrasArray || obrasArray.length === 0) {
-      cont.innerHTML = `<div style="text-align:center;padding:40px;color:#666;grid-column:1/-1;">Coming soon...</div>`;
+      cont.innerHTML = `
+        <div style="text-align:center;padding:60px 20px;color:#666;grid-column:1/-1;">
+          <h3 style="margin-bottom:10px;">No hay obras disponibles</h3>
+          <p>Verifica que el archivo JSON esté correctamente cargado.</p>
+        </div>`;
       return;
     }
 
     obrasArray.forEach((obra, displayIndex) => {
-      const firstImage = (obra.images && obra.images.length) ? obra.images[0] : null;
+      const firstImage = obra.images?.[0] || null;
+      const imageSrc = resolveImagePath(firstImage);
 
-      // Si la ruta ya es absoluta (http(s)://) o empieza con '/' la respetamos.
-      // Si es solo un nombre de archivo (p.ej. "obra1.jpg") lo resolvemos a img/<nombre>
-      let imageSrc = "https://via.placeholder.com/280";
-      if (firstImage) {
-        const trimmed = String(firstImage).trim();
-        if (/^https?:\/\//i.test(trimmed)) {
-          imageSrc = trimmed;
-        } else if (/^\//.test(trimmed)) {
-          // ruta absoluta en el servidor (empieza con '/')
-          imageSrc = trimmed;
-        } else {
-          // ruta relativa dentro de la carpeta img/
-          imageSrc = `img/${trimmed}`;
-        }
-      }
+      const imageIndicator = obra.images && obra.images.length > 1
+        ? `<div class="image-count-indicator">${obra.images.length} fotos</div>` : "";
 
-      const imageIndicator = obra.images && obra.images.length > 1 ? `<div class="image-count-indicator">${obra.images.length} fotos</div>` : "";
       const priceText = formatPrice(obra.price);
-
 
       const card = document.createElement("div");
       card.className = "obra-card";
@@ -195,7 +173,11 @@ document.addEventListener("DOMContentLoaded", () => {
       card.setAttribute("data-category", obra.category || "");
       card.innerHTML = `
         <div class="obra-image-container">
-          <img src="${imageSrc}" alt="${escapeHtml(obra.title)}" loading="lazy" onerror="this.src='https://via.placeholder.com/280'">
+          <img src="${imageSrc}" 
+               alt="${escapeHtml(obra.title)}" 
+               loading="lazy"
+               referrerpolicy="no-referrer"
+               onerror="this.onerror=null; this.src='${PLACEHOLDER_SM}';">
           ${imageIndicator}
         </div>
         <h3>${escapeHtml(obra.title)}</h3>
@@ -204,32 +186,32 @@ document.addEventListener("DOMContentLoaded", () => {
       `;
       cont.appendChild(card);
     });
+
+    console.log(`✅ ${obrasArray.length} obras renderizadas`);
   }
 
-  /* ----------------- Filtros (comparación normalizada) ----------------- */
+  /* ----------------- Filtros ----------------- */
   function setupFilters(obrasArr) {
     const buttons = document.querySelectorAll(".filter-btn");
     buttons.forEach(btn => {
       btn.addEventListener("click", () => {
         buttons.forEach(b => b.classList.remove("active"));
         btn.classList.add("active");
-        const filterRaw = btn.dataset.filter || "";
-        const nf = normalize(filterRaw);
-        let filtered;
-        if (!filterRaw || nf === "todas" || nf === "all") {
-          filtered = obrasArr;
-        } else {
-          filtered = obrasArr.filter(o => normalize(o.category) === nf);
-        }
+
+        const nf = normalize(btn.dataset.filter || "");
+        const filtered = (!nf || nf === "todas" || nf === "all")
+          ? obrasArr
+          : obrasArr.filter(o => normalize(o.category) === nf);
+
         currentObras = filtered;
         renderObras(filtered);
+        console.log(`🔍 Filtro: "${btn.dataset.filter}" -> ${filtered.length} obras`);
       });
     });
   }
 
-    /* ----------------- Render tamaño (size_total + panels) ----------------- */
+  /* ----------------- Tamaños/panels ----------------- */
   function renderSizeBlock(obra) {
-    // usa escapeHtml disponible en el scope
     const escape = (s) => escapeHtml(s);
     let html = "";
 
@@ -238,9 +220,9 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     if (Array.isArray(obra.panels) && obra.panels.length) {
-      // Si hay medida total o más de 1 panel, mostrar encabezado y lista
       if (obra.size_total || obra.panels.length > 1) {
-        html += `<div style="margin-top:6px;"><strong>Medidas individuales:</strong><ul class="panels-list" style="margin:8px 0 0 18px; text-align:left;">`;
+        html += `<div style="margin-top:6px;"><strong>Medidas individuales:</strong>
+          <ul class="panels-list" style="margin:8px 0 0 18px; text-align:left;">`;
         obra.panels.forEach((p, idx) => {
           const label = p.label || `Panel ${idx + 1}`;
           const size = p.size || "No especificado";
@@ -249,40 +231,39 @@ document.addEventListener("DOMContentLoaded", () => {
         });
         html += `</ul></div>`;
       } else {
-        // solo 1 panel en panels[], mostrar simple
         const p = obra.panels[0];
         html += `<p><strong>Tamaño:</strong> ${escape(p.size || "No especificado")}</p>`;
       }
     } else if (obra.size) {
-      // fallback al campo size antiguo
       html += `<p><strong>Tamaño:</strong> ${escape(obra.size)}</p>`;
     }
 
     if (!html) html = `<p><strong>Tamaño:</strong> No especificado</p>`;
-
     return `<div class="obra-size">${html}</div>`;
   }
 
-  /* ----------------- Modal dinámico (mejorado con panels y captions) ----------------- */
+  /* ----------------- Modal dinámico ----------------- */
   function generateModalHTML(obra) {
-    const row = (label, value) => `<p><strong>${escapeHtml(label)}:</strong> ${escapeHtml(value || "No especificado")}</p>`;
+    const row = (label, value) => value ? `<p><strong>${escapeHtml(label)}:</strong> ${escapeHtml(value)}</p>` : "";
     const titleHtml = `<h2>${escapeHtml(obra.title)}</h2>`;
 
-    // Construir slides: si hay panels intentamos agregar caption por índice
     const imagesHtml = (obra.images && obra.images.length) ? obra.images.map((img, i) => {
-      const captionParts = [];
+      const parts = [];
       if (Array.isArray(obra.panels) && obra.panels[i]) {
         const p = obra.panels[i];
-        if (p.label) captionParts.push(p.label);
-        if (p.size) captionParts.push(p.size);
-        if (p.note) captionParts.push(p.note);
+        if (p.label) parts.push(p.label);
+        if (p.size) parts.push(p.size);
+        if (p.note) parts.push(p.note);
       }
-      const captionHtml = captionParts.length ? `<div class="slide-caption">${escapeHtml(captionParts.join(" — "))}</div>` : "";
+      const caption = parts.length ? `<div class="slide-caption">${escapeHtml(parts.join(" — "))}</div>` : "";
+      const imgSrc = resolveImagePath(img);
       return `<div class="swiper-slide" style="position:relative;">
-                <img src="img/${img}" alt="${escapeHtml(obra.title)}" onerror="this.src='https://via.placeholder.com/600x400'">
-                ${captionHtml}
+                <img src="${imgSrc}" alt="${escapeHtml(obra.title)}"
+                     referrerpolicy="no-referrer"
+                     onerror="this.onerror=null; this.src='${PLACEHOLDER_LG}';">
+                ${caption}
               </div>`;
-    }).join('') : "";
+    }).join("") : "";
 
     const sliderSection = (obra.images && obra.images.length > 1) ? `
       <div class="modal-image-section">
@@ -293,8 +274,14 @@ document.addEventListener("DOMContentLoaded", () => {
           <div class="swiper-pagination"></div>
         </div>
       </div>` : (obra.images && obra.images.length === 1 ? `
-      <div class="single-image"><img src="img/${obra.images[0]}" alt="${escapeHtml(obra.title)}" onerror="this.src='https://via.placeholder.com/600x400'"></div>` : `
-      <div class="single-image"><img src="https://via.placeholder.com/600x400" alt="placeholder"></div>`);
+      <div class="single-image">
+        <img src="${resolveImagePath(obra.images[0])}" alt="${escapeHtml(obra.title)}"
+             referrerpolicy="no-referrer"
+             onerror="this.onerror=null; this.src='${PLACEHOLDER_LG}';">
+      </div>` : `
+      <div class="single-image">
+        <img src="${PLACEHOLDER_LG}" alt="Arte">
+      </div>`);
 
     let detailsHtml = "";
     const cat = (obra.category || "").trim();
@@ -306,22 +293,22 @@ document.addEventListener("DOMContentLoaded", () => {
           ${renderSizeBlock(obra)}
           ${row("Precio", formatPrice(obra.price))}
         </div>
-        <p class="obra-description">${escapeHtml(obra.description || (obra.raw && obra.raw['Descripción']) || "")}</p>
-        <a class="btn-whatsapp" href="https://wa.me/5491167852021?text=${encodeURIComponent('Hola Lorena, me interesa la obra: ' + obra.title)}" target="_blank">Consultar por WhatsApp</a>
+        ${obra.description ? `<p class="obra-description">${escapeHtml(obra.description)}</p>` : ""}
+        <a class="btn-whatsapp" href="https://wa.me/5491167852021?text=${encodeURIComponent("Hola Lorena, me interesa la obra: " + obra.title)}" target="_blank">Consultar por WhatsApp</a>
       `;
     } else if (cat === "TerrAqEcoJuego") {
-      const ig = (obra.raw && (obra.raw['Instagram'] || obra.raw['instagram'])) || "";
-      const yt = (obra.raw && (obra.raw['YouTube'] || obra.raw['youtube'] || obra.raw['Video'])) || "";
+      const ig = (obra.raw && (obra.raw.Instagram || obra.raw.instagram)) || "";
+      const yt = (obra.raw && (obra.raw.YouTube || obra.raw.youtube || obra.raw.Video)) || "";
       detailsHtml = `
         <div class="obra-details">
-          ${row("Descripción del juego", obra.description || (obra.raw && (obra.raw['Descripción'] || obra.raw['Descripcion']) ) )}
+          ${obra.description ? `<p>${escapeHtml(obra.description)}</p>` : ""}
           ${renderSizeBlock(obra)}
           ${row("Precio", formatPrice(obra.price))}
         </div>
         <div style="display:flex; gap:10px; justify-content:center; margin-top:12px; flex-wrap:wrap;">
-          ${ig ? `<a href="${escapeHtml(ig)}" target="_blank" class="btn-whatsapp">Instagram Terraq</a>` : ''}
-          ${yt ? `<a href="${escapeHtml(yt)}" target="_blank" class="btn-whatsapp">Ver video de juego</a>` : ''}
-          <a href="https://wa.me/5491167852021?text=${encodeURIComponent('Hola Lorena, quiero info sobre el juego: ' + obra.title)}" target="_blank" class="btn-whatsapp">Consultar por WhatsApp</a>
+          ${ig ? `<a href="${escapeHtml(ig)}" target="_blank" class="btn-whatsapp">Instagram Terraq</a>` : ""}
+          ${yt ? `<a href="${escapeHtml(yt)}" target="_blank" class="btn-whatsapp">Ver video de juego</a>` : ""}
+          <a href="https://wa.me/5491167852021?text=${encodeURIComponent("Hola Lorena, quiero info sobre el juego: " + obra.title)}" target="_blank" class="btn-whatsapp">Consultar por WhatsApp</a>
         </div>
       `;
     } else if (cat === "Libros & Postales") {
@@ -331,24 +318,19 @@ document.addEventListener("DOMContentLoaded", () => {
           <div class="obra-details">
             ${renderSizeBlock(obra)}
             ${row("Precio", formatPrice(obra.price))}
-            ${row("Mini descripción (uso)", obra.raw && (obra.raw['Uso'] || obra.raw['Mini descripción'] || obra.description))}
-            ${row("Material", obra.raw && (obra.raw['Material'] || ""))}
-            ${row("Cantidad de páginas", obra.raw && (obra.raw['Cantidad de paginas'] || obra.raw['Páginas'] || obra.raw['Paginas'] || ""))}
-            ${row("Encuadernación", obra.raw && (obra.raw['Encuadernacion'] || obra.raw['Encuadernación'] || ""))}
-            ${row("Cantidad de hojas", obra.raw && (obra.raw['Cantidad de hojas'] || ""))}
+            ${row("Descripción", obra.description)}
           </div>
-          <a class="btn-whatsapp" href="https://wa.me/5491167852021?text=${encodeURIComponent('Hola Lorena, me interesa el libro: ' + obra.title)}" target="_blank">Consultar por WhatsApp</a>
+          <a class="btn-whatsapp" href="https://wa.me/5491167852021?text=${encodeURIComponent("Hola Lorena, me interesa el libro: " + obra.title)}" target="_blank">Consultar por WhatsApp</a>
         `;
       } else {
         detailsHtml = `
           <div class="obra-details">
             ${row("Descripción", obra.description)}
             ${row("Precio", formatPrice(obra.price))}
-            ${row("Técnica", obra.tecnica)}
             ${renderSizeBlock(obra)}
           </div>
           <p style="font-style:italic; margin-top:10px;">Las postales se venden en packs y se coordina selección por WhatsApp.</p>
-          <a class="btn-whatsapp" href="https://wa.me/5491167852021?text=${encodeURIComponent('Hola Lorena, me interesan las postales: ' + obra.title)}" target="_blank">Consultarme por packs</a>
+          <a class="btn-whatsapp" href="https://wa.me/5491167852021?text=${encodeURIComponent("Hola Lorena, me interesan las postales: " + obra.title)}" target="_blank">Consultarme por packs</a>
         `;
       }
     } else {
@@ -358,8 +340,8 @@ document.addEventListener("DOMContentLoaded", () => {
           ${renderSizeBlock(obra)}
           ${row("Precio", formatPrice(obra.price))}
         </div>
-        <p class="obra-description">${escapeHtml(obra.description || "")}</p>
-        <a class="btn-whatsapp" href="https://wa.me/5491167852021?text=${encodeURIComponent('Hola Lorena, me interesa la obra: ' + obra.title)}" target="_blank">Consultar por WhatsApp</a>
+        ${obra.description ? `<p class="obra-description">${escapeHtml(obra.description)}</p>` : ""}
+        <a class="btn-whatsapp" href="https://wa.me/5491167852021?text=${encodeURIComponent("Hola Lorena, me interesa la obra: " + obra.title)}" target="_blank">Consultar por WhatsApp</a>
       `;
     }
 
@@ -374,7 +356,7 @@ document.addEventListener("DOMContentLoaded", () => {
     `;
   }
 
-  /* ----------------- Modal y Swiper del modal ----------------- */
+  /* ----------------- Modal setup ----------------- */
   function setupModal() {
     const contenedor = document.getElementById("obras-container");
     const modal = document.getElementById("modal");
@@ -392,16 +374,21 @@ document.addEventListener("DOMContentLoaded", () => {
       modalBody.innerHTML = generateModalHTML(obra);
       modal.classList.add("show");
 
-      if (modalBody.querySelector(".modal-swiper")) {
+      const modalSwiperEl = modalBody.querySelector(".modal-swiper");
+      if (modalSwiperEl) {
         setTimeout(() => {
           try {
-            new Swiper(".modal-swiper", {
+            new Swiper(modalSwiperEl, {
               loop: obra.images && obra.images.length > 2,
               navigation: {
-                nextEl: ".modal-swiper .swiper-button-next",
-                prevEl: ".modal-swiper .swiper-button-prev",
+                nextEl: modalSwiperEl.querySelector(".swiper-button-next"),
+                prevEl: modalSwiperEl.querySelector(".swiper-button-prev"),
               },
-              pagination: { el: ".modal-swiper .swiper-pagination", clickable: true, dynamicBullets: true },
+              pagination: {
+                el: modalSwiperEl.querySelector(".swiper-pagination"),
+                clickable: true,
+                dynamicBullets: true
+              },
               slidesPerView: 1,
               spaceBetween: 0,
             });
@@ -419,14 +406,30 @@ document.addEventListener("DOMContentLoaded", () => {
 
   /* ----------------- App boot ----------------- */
   (async function boot() {
+    console.log("🚀 Iniciando aplicación…");
     const obras = await loadObras();
-    // ordenar por título para consistencia
-    obras.sort((a,b) => (a.title || "").localeCompare(b.title || ""));
+
+    if (obras.length === 0) {
+      const cont = document.getElementById("obras-container");
+      if (cont) cont.innerHTML = `
+        <div style="text-align:center;padding:40px;color:#d00;grid-column:1/-1;">
+          <h3>Error al cargar las obras</h3>
+          <p>Revisá que <code>obras_cleaned.json</code> esté en la carpeta correcta.</p>
+        </div>`;
+      return;
+    }
+
+    obras.sort((a, b) => (a.title || "").localeCompare(b.title || ""));
     currentObras = obras;
     renderObras(obras);
     setupFilters(obras);
     setupModal();
-    window.currentObras = currentObras; // debug
-  })();
+    window.currentObras = currentObras;
 
+    const allBtn = Array.from(document.querySelectorAll(".filter-btn"))
+      .find(b => ["todas","all"].includes(normalize(b.dataset.filter || "")));
+    if (allBtn) allBtn.classList.add("active");
+
+    console.log(`✅ App lista con ${obras.length} obras (BASE="${BASE}")`);
+  })();
 });

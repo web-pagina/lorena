@@ -10,19 +10,9 @@
       { "label": "Bastidor B", "size": "100 cm x 150 cm" },
       { "label": "Bastidor C", "size": "100 cm x 150 cm" }
     ],
-    "price": "consultar precio",
-    "description": "Seis de las siete especies...",
-    "images": ["vuelos1.png","vuelos2.png","vuelos3.png"]
-  },
-  {
-    "title": null,
-    "category": "Todas",
-    "tipo_original": null,
-    "tecnica": null,
-    "size": "Total: 300 cm ancho x 150 cm alto",
-    "price": null,
-    "description": null,
-    "images": []
+    "price": "Consultar precio",
+    "description": "Seis de las siete especies de tortugas marinas que existen en el mundo. Obra en tríptico que representa la belleza y fragilidad de estos guardianes del océano.",
+    "images": ["https://picsum.photos/seed/vuelos1/800/600", "https://picsum.photos/seed/vuelos2/800/600", "https://picsum.photos/seed/vuelos3/800/600"]
   },
   {
     "title": "Pequeños Emperadores",
@@ -30,268 +20,226 @@
     "tipo_original": "Obra pictórica",
     "tecnica": "Acrílico sobre tela con bastidor.",
     "size": "120 cm x 90 cm",
-    "price": "consultar precio",
-    "description": null,
-    "images": ["obra1a.png","obra1b.png","obra1c.png"]
+    "price": "Consultar precio",
+    "description": "Pingüinos Emperador en su hábitat natural. Una celebración de la vida en los ambientes más extremos del planeta.",
+    "images": ["https://picsum.photos/seed/emperador1/800/600", "https://picsum.photos/seed/emperador2/800/600"]
   },
   {
-    "title": "Miradas desde la oscuridad",
+    "title": "Miradas desde la Oscuridad",
     "category": "Obra pictórica",
     "tipo_original": "Obra pictórica",
-    "tecnica": "acrílico sobre tela en bastidor",
+    "tecnica": "Acrílico sobre tela en bastidor",
     "size": "120 cm x 120 cm",
-    "price": "consultar precio",
-    "description": null,
-    "images": []
+    "price": "Consultar precio",
+    "description": "Una exploración de las profundidades marinas y sus habitantes misteriosos.",
+    "images": ["https://picsum.photos/seed/oscuridad1/800/600"]
   },
   {
     "title": "Cachorros en el Hielo",
     "category": "Obra pictórica",
     "tipo_original": "Obra pictórica",
     "tecnica": "Acrílico sobre tela en bastidor. Enmarcado.",
-    "size": "Medidas: 100 cm x 120 cm",
-    "price": "consultar precio",
-    "description": null,
-    "images": []
+    "size": "100 cm x 120 cm",
+    "price": "Consultar precio",
+    "description": "Focas bebés sobre el hielo ártico. Una obra que captura la ternura de la vida salvaje.",
+    "images": ["https://picsum.photos/seed/cachorros1/800/600", "https://picsum.photos/seed/cachorros2/800/600"]
   },
   {
-    "title":  null,
-    "category": "Todas",
-    "tipo_original": null,
-    "tecnica": null,
-    "size": "Marco medida: 136 cm x 156 cm",
-    "price": null,
-    "description": null,
-    "images": ["obra1a.png","obra1b.png","obra1c.png"]
-  },
-  {
-    "title": "Guardianes en el océano",
+    "title": "Guardianes del Océano",
     "category": "Obra pictórica",
     "tipo_original": "Obra pictórica",
     "tecnica": "Acrílico sobre tela en bastidor",
-    "size": "Medidas: 100cm x 120 cm",
-    "price": "consultar precio",
-    "description": null,
-    "images": ["obra1a.png","obra1b.png","obra1c.png"]
-  },
-  {
-    "title": null,
-    "category": "Todas",
-    "tipo_original": null,
-    "tecnica": null,
-    "size": "Medidas con marco: 136 cm x 152 cm",
-    "price": null,
-    "description": null,
-    "images": ["obra1a.png","obra1b.png","obra1c.png"]
+    "size": "100 cm x 120 cm",
+    "price": "Consultar precio",
+    "description": "Ballenas majestuosas navegando las aguas profundas, símbolos de la grandeza del océano.",
+    "images": ["https://picsum.photos/seed/guardianes1/800/600", "https://picsum.photos/seed/guardianes2/800/600"]
   },
   {
     "title": "Abrazo desde Aletas",
     "category": "Obra pictórica",
     "tipo_original": "Obra pictórica",
     "tecnica": "Acrílico sobre tela",
-    "size": "Medidas: 80 cm x 90 cm",
-    "price": "consultar precio",
-    "description": null,
-    "images": ["obra1a.png","obra1b.png","obra1c.png"]
+    "size": "80 cm x 90 cm",
+    "price": "Consultar precio",
+    "description": "Una representación emotiva del vínculo entre madre e hijo en el mundo marino.",
+    "images": ["https://picsum.photos/seed/aletas1/800/600"]
   },
   {
     "title": "Familia de Emperadores",
     "category": "Obra pictórica",
     "tipo_original": "Obra pictórica",
-    "tecnica": "acrílico sobre tela montado en bastidor",
-    "size": "Medidas: 50 cm x 120 cm cada bastidor. ",
-    "price": "consultar precio",
-    "description": "Díptico de dos Pingüinos Emperador",
-    "images": ["obra1a.png","obra1b.png","obra1c.png"]
-  },
-  {
-    "title": null,
-    "category": "Todas",
-    "tipo_original": null,
-    "tecnica": null,
-    "size": "Medida total: 120 cm x 100 cm",
-    "price": null,
-    "description": null,
-    "images": ["obra1a.png","obra1b.png","obra1c.png"]
+    "tecnica": "Acrílico sobre tela montado en bastidor",
+    "size_total": "120 cm x 100 cm",
+    "panels": [
+      { "label": "Panel Izquierdo", "size": "50 cm x 120 cm" },
+      { "label": "Panel Derecho", "size": "50 cm x 120 cm" }
+    ],
+    "price": "Consultar precio",
+    "description": "Díptico de Pingüinos Emperador en familia, mostrando el cuidado parental en la Antártida.",
+    "images": ["https://picsum.photos/seed/familia1/800/600", "https://picsum.photos/seed/familia2/800/600"]
   },
   {
     "title": "Two Barn Owls",
     "category": "Acuarelas e Ilustraciones",
-    "tipo_original": "Acuarelas e Ilustraciones",
+    "tipo_original": "Ilustración",
     "tecnica": "Ilustración a tinta y pluma",
-    "size": "Medidas:61 cm x 45 cm de alto",
-    "price": "Uds 150",
-    "description": null,
-    "images": []
+    "size": "61 cm x 45 cm",
+    "price": "USD 150",
+    "description": "Dos lechuzas de campanario en detalle preciso. Técnica mixta.",
+    "images": ["https://picsum.photos/seed/owls1/800/600"]
   },
   {
-    "title": "Teo Barn Coloured Owls",
+    "title": "Barn Owls a Color",
     "category": "Acuarelas e Ilustraciones",
-    "tipo_original": "Acuarelas e Ilustraciones",
-    "tecnica": "Acuarela",
-    "size": "Medidas: 61 cm x 45 cm de alto",
+    "tipo_original": "Acuarela",
+    "tecnica": "Acuarela sobre papel",
+    "size": "61 cm x 45 cm",
     "price": "USD 170",
-    "description": null,
-    "images": ["obra1a.png","obra1b.png","obra1c.png"]
+    "description": "Versión a color de las lechuzas, con tonos cálidos y naturales.",
+    "images": ["https://picsum.photos/seed/owlscolor/800/600"]
   },
   {
     "title": "Mono de la Montaña",
     "category": "Acuarelas e Ilustraciones",
-    "tipo_original": "Acuarelas e Ilustraciones",
-    "tecnica": "Acuarela",
-    "size": "Medida 24 cm x 32 cm",
-    "price": "80 Uds",
-    "description": null,
-    "images": []
+    "tipo_original": "Acuarela",
+    "tecnica": "Acuarela sobre papel",
+    "size": "24 cm x 32 cm",
+    "price": "USD 80",
+    "description": "Retrato expresivo de un primate en su hábitat natural.",
+    "images": ["https://picsum.photos/seed/mono1/800/600"]
   },
   {
-    "title": "Búho",
+    "title": "Búho Nocturno",
     "category": "Acuarelas e Ilustraciones",
-    "tipo_original": "Acuarelas e Ilustraciones",
+    "tipo_original": "Acuarela",
     "tecnica": "Acuarela",
     "size": "24 cm x 32 cm",
-    "price": "50 usd",
-    "description": null,
-    "images": ["obra1a.png","obra1b.png","obra1c.png"]
+    "price": "USD 50",
+    "description": "Búho en tonos oscuros y místicos.",
+    "images": ["https://picsum.photos/seed/buho1/800/600"]
   },
   {
     "title": "Manzanas",
     "category": "Acuarelas e Ilustraciones",
-    "tipo_original": "Acuarelas e Ilustraciones",
+    "tipo_original": "Acuarela",
     "tecnica": "Acuarela",
     "size": "24 cm x 32 cm",
-    "price": "60 usd",
-    "description": null,
-    "images": ["obra1a.png","obra1b.png","obra1c.png"]
+    "price": "USD 60",
+    "description": "Naturaleza muerta con manzanas rojas y verdes.",
+    "images": ["https://picsum.photos/seed/manzanas/800/600"]
   },
   {
-    "title": "Amistad",
+    "title": "Amistad Animal",
     "category": "Acuarelas e Ilustraciones",
-    "tipo_original": "Acuarelas e Ilustraciones",
+    "tipo_original": "Acuarela",
     "tecnica": "Acuarela y tinta",
     "size": "24 cm x 32 cm",
-    "price": "50 usd",
-    "description": null,
-    "images": []
+    "price": "USD 50",
+    "description": "Dos animales en un momento de conexión especial.",
+    "images": ["https://picsum.photos/seed/amistad/800/600"]
   },
   {
     "title": "Ave Azul",
     "category": "Acuarelas e Ilustraciones",
-    "tipo_original": "Acuarelas e Ilustraciones",
+    "tipo_original": "Acuarela",
     "tecnica": "Acuarela",
     "size": "24 cm x 32 cm",
-    "price": "55 usd",
-    "description": null,
-    "images": ["obra1a.png","obra1b.png","obra1c.png"]
+    "price": "USD 55",
+    "description": "Un ave exótica en tonos azules vibrantes.",
+    "images": ["https://picsum.photos/seed/aveazul/800/600"]
   },
   {
     "title": "Bote Aguamarina",
     "category": "Acuarelas e Ilustraciones",
-    "tipo_original": "Acuarelas e Ilustraciones",
+    "tipo_original": "Acuarela",
     "tecnica": "Acuarela",
     "size": "24 cm x 32 cm",
-    "price": "30 usd",
-    "description": null,
-    "images": []
+    "price": "USD 30",
+    "description": "Pequeño bote flotando en aguas cristalinas.",
+    "images": ["https://picsum.photos/seed/bote/800/600"]
   },
   {
-    "title": "Playa",
+    "title": "Escena de Playa",
     "category": "Acuarelas e Ilustraciones",
-    "tipo_original": "Acuarelas e Ilustraciones",
+    "tipo_original": "Acuarela",
     "tecnica": "Acuarela",
-    "size": "24cm x 32 cm",
-    "price": "Usd 20",
-    "description": null,
-    "images": []
+    "size": "24 cm x 32 cm",
+    "price": "USD 20",
+    "description": "Vista costera con arena y mar.",
+    "images": ["https://picsum.photos/seed/playa/800/600"]
   },
   {
-    "title": "Faro rojo",
+    "title": "Faro Rojo",
     "category": "Acuarelas e Ilustraciones",
-    "tipo_original": "Acuarelas e Ilustraciones",
+    "tipo_original": "Acuarela",
     "tecnica": "Acuarela y tinta",
     "size": "24 cm x 32 cm",
-    "price": "Usd 25",
-    "description": null,
-    "images": []
+    "price": "USD 25",
+    "description": "Faro costero guiando a los navegantes.",
+    "images": ["https://picsum.photos/seed/faro/800/600"]
   },
   {
-    "title": "TerrAq",
+    "title": "TerrAq EcoJuego",
     "category": "TerrAqEcoJuego",
-    "tipo_original": "TerrAqEcoJuego",
-    "tecnica": "Juego",
-    "size": null,
-    "price": 90000000,
-    "description": "Juego de mesa de estrategia sobre especies y medioambiente. Con sus ilustraciones dibujadas íntegramente a mano, su diseño y textos sobre cuestiones ambientales del planeta, este juego de mesa ha obtenido la Mención al Sello Buen Diseño argentino.",
-    "images": []
+    "tipo_original": "Juego educativo",
+    "tecnica": "Juego de mesa",
+    "size": "Caja: 30 cm x 30 cm x 8 cm",
+    "price": 90000,
+    "description": "Juego de mesa de estrategia sobre especies y medioambiente. Con ilustraciones dibujadas íntegramente a mano, su diseño y textos sobre cuestiones ambientales del planeta. Este juego de mesa ha obtenido la Mención al Sello Buen Diseño argentino.",
+    "images": ["https://picsum.photos/seed/terraq1/800/600", "https://picsum.photos/seed/terraq2/800/600", "https://picsum.photos/seed/terraq3/800/600"],
+    "raw": {
+      "Instagram": "https://www.instagram.com/terraqecojuego/",
+      "YouTube": "https://www.youtube.com/watch?v=ejemplo"
+    }
   },
   {
-    "title": "Un libro de búhos y lechuzas",
+    "title": "Un Libro de Búhos y Lechuzas",
     "category": "Libros & Postales",
-    "tipo_original": "Libros & Postales",
-    "tecnica": "Libro",
-    "size": "Medidas: 32 cm x 24 cm",
-    "price": "70 usd",
-    "description": "Encuadernación: Sistema a discos para poder trabajar las hojas en forma independiente.\nMaterial: Impreso en papel Chambril 225 gramos.\nPrints de Ilustraciones y acuarelas hechas a mano.\nCantidad de páginas: 64\nCantidad de hojas: 32, incluye dos sobres de hojas a color. Varias postales, varios señaladores, ilustración original de la autora.\nUso: libro para ilustrar, pintar y escribir creando un espacio personal para el propio arte.",
-    "images": []
+    "tipo_original": "Libro artístico",
+    "tecnica": "Libro ilustrado",
+    "size": "32 cm x 24 cm",
+    "price": "USD 70",
+    "description": "Encuadernación a discos para trabajar las hojas en forma independiente. Impreso en papel Chambril 225 gramos. Prints de ilustraciones y acuarelas hechas a mano. 64 páginas (32 hojas), incluye dos sobres de hojas a color, varias postales, señaladores e ilustración original de la autora. Libro para ilustrar, pintar y escribir creando un espacio personal para el propio arte.",
+    "images": ["https://picsum.photos/seed/libro1/800/600", "https://picsum.photos/seed/libro2/800/600", "https://picsum.photos/seed/libro3/800/600"]
   },
   {
-    "title": null,
-    "category": "Todas",
-    "tipo_original": null,
-    "tecnica": null,
-    "size": null,
-    "price": null,
-    "description": null,
-    "images": []
+    "title": "Pack de Postales Marinas",
+    "category": "Libros & Postales",
+    "tipo_original": "Postales",
+    "tecnica": "Impresión digital de acuarelas originales",
+    "size": "15 cm x 10 cm c/u",
+    "price": 5000,
+    "description": "Colección de 10 postales con ilustraciones de fauna marina. Impresas en papel de alta calidad.",
+    "images": ["https://picsum.photos/seed/postales1/800/600", "https://picsum.photos/seed/postales2/800/600"]
   },
   {
-    "title": null,
-    "category": "Todas",
-    "tipo_original": null,
-    "tecnica": null,
-    "size": null,
-    "price": null,
-    "description": null,
-    "images": []
+    "title": "Baúl Decorado 'Océano'",
+    "category": "Baúles & Deco",
+    "tipo_original": "Objeto decorativo",
+    "tecnica": "Madera pintada a mano con acrílicos",
+    "size": "50 cm x 30 cm x 35 cm",
+    "price": 45000,
+    "description": "Baúl de madera decorado con motivos marinos. Pieza única pintada a mano.",
+    "images": ["https://picsum.photos/seed/baul1/800/600", "https://picsum.photos/seed/baul2/800/600"]
   },
   {
-    "title": "link a la imagen referida en instagram ",
-    "category": "Todas",
-    "tipo_original": null,
-    "tecnica": null,
-    "size": null,
-    "price": null,
-    "description": null,
-    "images": []
+    "title": "Print 'Ballenas al Atardecer'",
+    "category": "Prints",
+    "tipo_original": "Réplica",
+    "tecnica": "Impresión digital de alta calidad sobre papel fotográfico",
+    "size": "40 cm x 60 cm",
+    "price": 15000,
+    "description": "Réplica de obra original. Ideal para decoración de espacios.",
+    "images": ["https://picsum.photos/seed/print1/800/600"]
   },
   {
-    "title": "agregar titulo colección",
-    "category": "Obra pictórica",
-    "tipo_original": "todo lo de agua es todos somos uno",
-    "tecnica": null,
-    "size": null,
-    "price": null,
-    "description": null,
-    "images": []
-  },
-  {
-    "title": "Link a instructivo en youtube",
-    "category": "Todas",
-    "tipo_original": null,
-    "tecnica": null,
-    "size": null,
-    "price": null,
-    "description": null,
-    "images": []
-  },
-  {
-    "title": "Link al instagram de TerrAq",
-    "category": "Todas",
-    "tipo_original": null,
-    "tecnica": null,
-    "size": null,
-    "price": null,
-    "description": null,
-    "images": []
+    "title": "Print 'Pingüinos en Familia'",
+    "category": "Prints",
+    "tipo_original": "Réplica",
+    "tecnica": "Impresión giclée",
+    "size": "50 cm x 70 cm",
+    "price": 18000,
+    "description": "Impresión de alta fidelidad de la obra original.",
+    "images": ["https://picsum.photos/seed/print2/800/600"]
   }
 ]
